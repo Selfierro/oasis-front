@@ -13,52 +13,7 @@
             .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ
                 p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
-                form
-                    .flexGrid
-                        .flexItem
-                            div
-                                input(placeholder="Выберите дату заезда" type="text" id="dataIn")
-                            div
-                                input(placeholder="Ваше имя" type="text" id="name")
-                            div
-                                input(placeholder="Номер телефона" type="text" id="phone")
-                            div
-                                input(placeholder="Гостей" type="number" id="geust")
-                            div
-                                input(placeholder="Детей" type="number" id="child")
-                        .flexItem
-                            div
-                                input(placeholder="Выберите дату выезда" type="text" id="dataOut")
-                            div
-                                input(placeholder="Электронная почта" type="text" id="email")
-                            div
-                                .nameForm Выберите номер (можно несколько)
-                                .flexGridInner
-                                    .flexItem
-                                        label
-                                            input(type="checkbox")
-                                            span.indicator
-                                            img(src="~/static/jpg/nomer.jpg")
-                                            | 1 комнатный номер
-                                    .flexItem
-                                        label
-                                            input(type="checkbox")
-                                            span.indicator
-                                            img(src="~/static/jpg/nomer.jpg")
-                                            | 2х комнатный номер
-                                    .flexItem
-                                        label
-                                            input(type="checkbox")
-                                            span.indicator
-                                            img(src="~/static/jpg/nomer.jpg")
-                                            | 2х комнатный улучшенный
-                                    .flexItem
-                                        label
-                                            input(type="checkbox")
-                                            span.indicator
-                                            img(src="~/static/jpg/nomer.jpg")
-                                            | Особняк
-                    button.send забронировать
+                BookingForm
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
                 slide
@@ -128,12 +83,13 @@
 <script>
     import MainHeader from '../components/headers/MainHeader'
     import MainFooter from '../components/footers/MainFooter'
+    import BookingForm from '../components/BookingForm'
 
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
 
     export default {
-        components: { MainHeader, MainFooter, Hooper, Slide, HooperNavigation, HooperPagination },
+        components: { MainHeader, MainFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm },
         data () {
             return {
                 hooperSettings: {

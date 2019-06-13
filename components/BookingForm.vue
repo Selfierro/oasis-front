@@ -1,5 +1,5 @@
 <template lang="pug">
-    form
+    form(@submit.prevent="createBooking")
         .flexGrid
             .flexItem
                 div
@@ -44,7 +44,7 @@
                                 span.indicator
                                 img(src="~/static/jpg/nomer.jpg")
                                 | Особняк
-        button.send забронировать
+        button(type="submit").send забронировать
 </template>
 
 <script>
@@ -68,6 +68,20 @@
             leaving_date: '',
             email: '',
             rooms: []
+        }
+    },
+    methods: {
+        async createBooking() {
+            // let response = await this.$api('post', '/booking/create/', {
+            //     leaving_date: this.leaving_date,
+            //     adult_quantity: this.adult_quantity,
+            //     coming_date: this.coming_date,
+            //     children_quantity: this.children_quantity,
+            //     phone: this.phone,
+            //     rooms: this.rooms,
+            //     full_name: this.full_name,
+            //     email: this.email,
+            // })
         }
     }
   }

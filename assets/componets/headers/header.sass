@@ -1,0 +1,92 @@
+header
+    background: $white
+    @include bs0-4-26
+    @media (max-width: 960px)
+        display: none
+    .flex
+        height: 70px
+        display: flex
+        align-items: center
+        justify-content: space-between
+    .hotelLink
+        a
+            display: inline-block
+            background-repeat: no-repeat
+            background-position: center
+            margin: 0 40px
+
+    .oasisResidence
+        width: 123px
+        height: 47px
+        animation: zoom 3s ease infinite
+        background-image: url(../static/svg/oasisResidence.svg)
+        @keyframes zoom
+            0%
+                transform: scale(1)
+            50%
+                transform: scale(0.9)
+            100%
+                transform: scale(1)
+    .oasisKaraOi
+        width: 130px
+        height: 47px
+        background-image: url(../static/svg/oasisKaraOi.svg)
+        animation: zoom2 3s 1.5s ease infinite
+
+        @keyframes zoom2
+            0%
+                transform: scale(1)
+            50%
+                transform: scale(0.9)
+            100%
+                transform: scale(1)
+    .rightSide
+        display: flex
+        .mail
+            margin-right: 22px
+            a
+                padding-left: 24px
+                background-image: url(../static/svg/mailHeader.svg)
+                background-repeat: no-repeat
+                background-position: left center
+                font-size: 16px
+                color: $gray
+                text-decoration: none
+        .social
+            display: flex
+            align-items: center
+            justify-content: center
+            margin-right: 22px
+            a
+                margin: 0 22px
+                display: inline-flex
+                background-repeat: no-repeat
+                background-position: center
+                width: 20px
+                height: 20px
+                @include tr0-3
+            .instagram
+                mask: url(../static/svg/instagram.svg)
+                background-color: $gray
+                &:hover
+                    background-color: $orange
+            .facebook
+                mask: url(../static/svg/facebook.svg)
+                background-color: $gray
+                &:hover
+                    background-color: $orange
+        .lang
+            display: flex
+
+            a
+                display: inline-flex
+                color: $gray
+                text-decoration: none
+                @include tr0-3
+                &:hover
+                    color: $orange
+                &.active
+                    font-weight: bold
+                    color: $orange
+                &:nth-child(2)
+                    margin-left: 10px

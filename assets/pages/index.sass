@@ -1,0 +1,468 @@
+html
+    overflow: hidden
+    padding-right: 17px
+html.loaded
+    padding-right: 0
+    overflow: auto
+    .preloader
+        opacity: 0
+        visibility: hidden
+    .bannerChoiceHotel
+        .flex
+            .item.leftImage
+                left: 1%
+            .item.rightImage
+                right: 1%
+            .item
+                .logo
+                    opacity: 1
+                    top: 50%
+            &:before
+                height: 100%
+.bannerChoiceHotel
+    overflow: hidden
+    .flex
+        display: flex
+        position: relative
+        margin: 0 -2%
+        &:before
+            @include tr1
+            transition-timing-function: ease-out
+            transition-delay: 1s
+            position: absolute
+            content: ''
+            width: 120px
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+            bottom: 0
+            height: 0
+            background-color: #E7A545
+        .item
+            width: 50%
+            position: relative
+            .logo
+                position: absolute
+                top: 60%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 290px
+                transition: 1s
+                transition-delay: 1s
+                opacity: 0
+                @media (max-width: 640px)
+                    width: 70%
+            img
+                width: 100%
+            .hotelLeft
+                width: 100%
+                height: 100%
+                object-position: right
+            .hotelRight
+                width: 100%
+                height: 100%
+                object-position: left
+            &.leftImage
+                left: -100%
+                @include tr1
+            &.rightImage
+                right: -100%
+                @include tr1
+.reservation
+    padding: 100px 0
+    margin: 0 8.3%
+    @media (max-width: 640px)
+        padding: 50px 0
+        margin: 0 1%
+    h1
+        text-align: center
+        margin-bottom: 56px
+        font-weight: bold
+        font-size: 36px
+        line-height: 49px
+        color: $black
+        @media (max-width: 640px)
+            line-height: normal
+            font-size: 20px
+            margin-bottom: 30px
+    p
+        text-align: center
+        font-size: 18px
+        line-height: 25px
+        color: $gray
+        margin-bottom: 64px
+        @media (max-width: 640px)
+            margin-bottom: 30px
+            font-size: 15px
+            line-height: normal
+    .flexGrid
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+        @media (max-width: 960px)
+            justify-content: center
+        .flexItem
+            width: 608px
+            @media (max-width: 1600px)
+                width: 48%
+            @media (max-width: 960px)
+                width: 100%
+            > div
+                margin-bottom: 40px
+                @media (max-width: 640px)
+                    margin-bottom: 20px
+    .nameForm
+        font-size: 18px
+        line-height: 25px
+        color: $gray
+        padding: 0 14px
+        margin-bottom: 10px
+        background-image: url(../static/svg/bed.svg)
+        background-repeat: no-repeat
+        background-position: right center
+        @media (max-width: 640px)
+            font-size: 14px
+    .flexGridInner
+        margin-left: -11px
+        display: flex
+        flex-wrap: wrap
+        @media (max-width: 640px)
+            margin-left: -5px
+        .flexItem
+            padding-left: 11px
+            width: 25%
+            @media (max-width: 640px)
+                width: 25%
+                padding-left: 5px
+                margin-bottom: 10px
+            input
+                display: none
+                &:checked + .indicator
+                    opacity: 1
+
+            label
+                cursor: pointer
+                position: relative
+                display: flex
+                flex-wrap: wrap
+                font-size: 16px
+                line-height: 110%
+                color: $black
+                @media (max-width: 1400px)
+                    font-size: 12px
+                @media (max-width: 640px)
+                    line-height: normal
+                    font-size: 9px
+            .indicator
+                position: absolute
+                top: 6px
+                right: 6px
+                background-image: url(../static/svg/checked.svg)
+                z-index: 1
+                width: 20px
+                height: 20px
+                opacity: 0
+                @include tr0-3
+            img
+                display: block
+                width: 100%
+                height: 108px
+                object-fit: cover
+                margin-bottom: 10px
+                @media (max-width: 1400px)
+                    height: 70px
+                @media (max-width: 640px)
+                    height: 50px
+
+    input
+        width: 100%
+        display: block
+        background-color: transparent
+        padding: 0 14px
+        height: 40px
+        font-size: 18px
+        outline: none !important
+        border-top: 0
+        border-left: 0
+        border-right: 0
+        border-bottom: 1px solid $black
+        background-repeat: no-repeat
+        background-position: right center
+        @media (max-width: 640px)
+            font-size: 14px
+        &#dataIn
+            background-image: url(../static/svg/calendar.svg)
+        &#name
+            background-image: url(../static/svg/name.svg)
+        &#phone
+            background-image: url(../static/svg/telephone.svg)
+        &#geust
+            background-image: url(../static/svg/customer.svg)
+        &#child
+            background-image: url(../static/svg/avatar.svg)
+        &#dataOut
+            background-image: url(../static/svg/calendar.svg)
+        &#email
+            background-image: url(../static/svg/email.svg)
+    .send
+        width: 390px
+        height: 62px
+        margin: 62px auto 0 auto
+        box-sizing: border-box
+        display: block
+        outline: none !important
+        border: 0
+        text-align: center
+        background-color: #292621
+        color: $white
+        font-size: 24px
+        line-height: 33px
+        cursor: pointer
+        text-transform: uppercase
+        @media (max-width: 640px)
+            width: 100%
+            margin: 30px auto 0 auto
+            font-size: 18px
+.newsSlider
+    display: flex
+    height: 560px
+
+    @media (max-width: 960px)
+        height: auto
+        flex-wrap: wrap
+    .hooper-list
+
+        .hooper-slide
+            display: flex
+            align-items: center
+            justify-content: center
+            > div
+                width: 90%
+                padding: 20px
+                overflow: auto
+                max-height: 100%
+    .imageText
+        flex: 1
+        flex-grow: 3
+        min-width: 1px
+        height: 100%
+        background: linear-gradient(235.44deg, #D643D9 6.67%, #1A55EE 99.13%)
+        box-shadow: 6px 0px 12px rgba(0, 0, 0, 0.25)
+        @media (max-width: 960px)
+            flex: inherit
+            width: 100%
+            min-width: 100%
+        h2
+            font-weight: bold
+            font-size: 36px
+            line-height: 49px
+            text-transform: uppercase
+            color: $white
+            margin-bottom: 20px
+            @media (max-width: 1600px)
+                font-size: 18px
+                line-height: normal
+            @media (max-width: 640px)
+                font-size: 18px
+                line-height: normal
+                margin-bottom: 10px
+        h3
+            font-size: 24px
+            line-height: 33px
+            text-transform: uppercase
+            color: $white
+            margin-bottom: 20px
+            @media (max-width: 1600px)
+                font-size: 15px
+                line-height: normal
+            @media (max-width: 640px)
+                margin-bottom: 10px
+                font-size: 16px
+                line-height: normal
+        p
+            font-size: 18px
+            line-height: 25px
+            color: $white
+            @media (max-width: 1600px)
+                font-size: 14px
+                line-height: normal
+            @media (max-width: 640px)
+                max-height: 110px
+                overflow: auto
+                font-size: 14px
+                line-height: normal
+
+    .imageSlider
+        width: 1130px
+        height: 100%
+        @media (max-width: 1600px)
+            width: 60%
+        .hooper-track
+            @media (max-width: 960px)
+                height: 200px
+        @media (max-width: 960px)
+            width: 100%
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    button
+        background: rgba(16, 16, 16, 0.8)
+        outline: none !important
+        padding: 0
+    svg
+        fill: $white
+        width: 50px
+        height: 80px
+        path + path
+            width: 13px
+            height: 28px
+.aboutOasis
+    padding: 64px 16.6%
+    @media (max-width: 1600px)
+        padding: 64px 8.3%
+    @media (max-width: 1200px)
+        padding: 40px 5%
+    @media (max-width: 640px)
+        padding: 30px 1%
+    h2
+        font-weight: bold
+        font-size: 24px
+        line-height: 180%
+        text-align: center
+        text-transform: uppercase
+        color: #000000
+        margin-bottom: 80px
+        @media (max-width: 640px)
+            font-size: 20px
+            line-height: normal
+            margin-bottom: 40px
+    .flexGrid
+        margin-left: -80px
+        display: flex
+        flex-wrap: wrap
+        @media (max-width: 1200px)
+            margin-left: -20px
+        @media (max-width: 640px)
+            margin-left: 0
+        .flexItem
+            padding-left: 80px
+            width: 33.3%
+            margin-bottom: 40px
+            @media (max-width: 1200px)
+                width: 50%
+                padding-left: 20px
+                margin-bottom: 20px
+            @media (max-width: 640px)
+                width: 100%
+                padding-left: 0
+                margin-bottom: 20px
+            > div
+                padding-left: 98px
+                background-repeat: no-repeat
+                background-position: left top
+                @media (max-width: 1200px)
+                    padding-left: 70px
+                @media (max-width: 640px)
+                    padding-left: 70px
+        h3
+            font-weight: bold
+            font-size: 14px
+            line-height: 25px
+            color: $black
+            margin-bottom: 15px
+        p
+            font-size: 12px
+            line-height: 17px
+            color: rgba(0, 0, 0, 0.56)
+.reviews
+    padding: 64px 16.6%
+    @media (max-width: 1600px)
+        padding: 64px 8.3%
+    @media (max-width: 1200px)
+        padding: 40px 5%
+    @media (max-width: 640px)
+        padding: 30px 1%
+    .hooper
+        height: auto
+        outline: none !important
+    .hooper-list
+        outline: none !important
+    .hooper-track
+        outline: none !important
+    .hooper-slide
+
+    .item
+        padding: 30px
+        @include tr0-3
+        margin: 20px 20px 40px 20px
+        @media (max-width: 640px)
+            padding: 0
+            margin: 0 0 40px 0
+        &:hover
+            box-shadow: 0px 9px 11px rgba(216, 216, 216, 0.88)
+            @media (max-width: 640px)
+                box-shadow: none
+        img
+            display: block
+            margin-bottom: 30px
+            max-height: 30px
+            width: auto
+        h5
+            font-size: 24px
+            line-height: 33px
+            text-transform: uppercase
+            color: $black
+        span
+            font-size: 18px
+            line-height: 25px
+            color: #C39D81
+            display: block
+            margin: 20px 0
+        p
+            font-weight: 300
+            font-size: 18px
+            line-height: 25px
+            color: $black
+            @media (max-width: 640px)
+                font-size: 12px
+                line-height: normal
+    .hooper-indicator
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        background: #C7C3C3
+        outline: none !important
+        margin: 0 7px
+        &:hover
+            background: #C7C3C3
+    .hooper-indicator.is-active
+        background: #707070
+        &:hover
+            background: #707070
+    .hooper-navigation
+        @media (max-width: 640px)
+            display: none
+    .hooper-prev
+        left: -50px
+        outline: none !important
+        background: rgba(16, 16, 16, 0.8)
+        fill: $white
+        padding: 0
+        @media (max-width: 960px)
+            left: 0
+        svg
+            height: 50px
+            width: 40px
+    .hooper-next
+        right: -50px
+        outline: none !important
+        background: rgba(16, 16, 16, 0.8)
+        fill: $white
+        padding: 0
+        @media (max-width: 960px)
+            right: 0
+        svg
+            height: 50px
+            width: 40px

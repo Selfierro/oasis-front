@@ -1,0 +1,35 @@
+
+
+@mixin flex()
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+
+@mixin flexGrid()
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  margin: 0 0 0 -15px
+  flex-wrap: wrap
+  @media (max-width: 960px)
+    margin: 0 0 0 -5px
+
+@mixin flexAC()
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+
+@mixin flexAL()
+  -webkit-box-align: start
+  -ms-flex-align: start
+  align-items: flex-start
+
+@mixin flexAR()
+  -webkit-box-align: end
+  -ms-flex-align: end
+  align-items: flex-end
+
+@mixin flexJC()
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center

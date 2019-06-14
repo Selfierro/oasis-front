@@ -7,6 +7,10 @@
                         NLink(to="/about").oasisResidence
                         NLink(to="/karaOi").oasisKaraOi
                 .center
+                    NLink(to="/") Главная
+                    NLink(to="/") О нас
+                    NLink(to="/") Номера
+                    NLink(to="/") Контакты
                 .rightSide
                     .mail
                         a(href="mailto: mymail@gmail.com") mymail@gmail.com

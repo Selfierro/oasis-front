@@ -1,4 +1,9 @@
 header
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 100
     background: $white
     @include bs0-4-26
     @media (max-width: 960px)
@@ -40,6 +45,14 @@ header
                 transform: scale(0.9)
             100%
                 transform: scale(1)
+    .center
+        display: flex
+        a
+            padding: 0 15px
+            font-size: 16px
+            line-height: 22px
+            color: #727272
+            text-decoration: none
     .rightSide
         display: flex
         .mail

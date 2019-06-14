@@ -20,30 +20,12 @@
                 div
                     .nameForm Выберите номер (можно несколько)
                     .flexGridInner
-                        .flexItem
+                        .flexItem(v-for="item in rooms_choices")
                             label
-                                input(type="checkbox")
+                                input(type="checkbox", v-model="rooms", :value="item.id")
                                 span.indicator
-                                img(src="~/static/jpg/nomer.jpg")
-                                | 1 комнатный номер
-                        .flexItem
-                            label
-                                input(type="checkbox")
-                                span.indicator
-                                img(src="~/static/jpg/nomer.jpg")
-                                | 2х комнатный номер
-                        .flexItem
-                            label
-                                input(type="checkbox")
-                                span.indicator
-                                img(src="~/static/jpg/nomer.jpg")
-                                | 2х комнатный улучшенный
-                        .flexItem
-                            label
-                                input(type="checkbox")
-                                span.indicator
-                                img(src="~/static/jpg/nomer.jpg")
-                                | Особняк
+                                img(:src="item.image")
+                                | {{ item.title }}
         button(type="submit").send забронировать
 </template>
 

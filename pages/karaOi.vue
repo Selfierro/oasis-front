@@ -1,9 +1,11 @@
 <template lang="pug">
-    div
+    div.karaOi
         KaraOiHeader
         hooper(:settings="hooperSettings")
             slide(v-for="(slide, index) in 5" :key="index")
-                div.item 123123
+                div.item
+                    img(src="~/static/jpg/slide2.jpg")
+
 </template>
 
 <script>

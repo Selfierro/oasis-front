@@ -13,19 +13,25 @@
             .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ
                 p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
-                BookingForm
+                .wrapper
+                    .flex
+                        .btn.active Residence
+                        .btn кара-ой
+                    BookingForm
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
                 slide
                     div
                         h2 новости и мероприятия
                         h3 What is Lorem Ipsum?
-                        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus Page 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus Page 1960s with the release of Letraset sheets software like Aldus Page..........
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorum ducimus hic illo laudantium nobis officiis possimus praesentium quis repellendus?
+                        NLink(to="/") ПОДРОБНЕЕ
                 slide
                     div
                         h2 новости и мероприятия
                         h3 What is Lorem Ipsum?
                         p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                        NLink(to="/") ПОДРОБНЕЕ
 
             hooper(ref='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider")
                 slide

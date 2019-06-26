@@ -4,7 +4,7 @@
             .flex
                 .rightSide
                     .hotelLink
-                        NLink(to="/about").oasisResidence
+                        NLink(to="/residence").oasisResidence
                         NLink(to="/karaOi").oasisKaraOi
                 .center
                 .rightSide

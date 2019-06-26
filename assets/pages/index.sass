@@ -94,6 +94,32 @@ html.loaded
             margin-bottom: 30px
             font-size: 15px
             line-height: normal
+    .flex
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-bottom: 50px
+        .btn.active
+            background-color: #292621
+            color: #fff
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2)
+        .btn
+            text-transform: uppercase
+            cursor: pointer
+            width: 390px
+            height: 62px
+            display: flex
+            align-items: center
+            justify-content: center
+            background: rgba(0, 120, 191, 0.3)
+            font-size: 24px
+            color: #292621
+            @include tr0-3
+            @media (max-width: 640px)
+                font-size: 18px
+            &:hover
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2)
+
     .flexGrid
         display: flex
         flex-wrap: wrap
@@ -283,6 +309,7 @@ html.loaded
             font-size: 18px
             line-height: 25px
             color: $white
+            margin-bottom: 37px
             @media (max-width: 1600px)
                 font-size: 14px
                 line-height: normal
@@ -291,6 +318,12 @@ html.loaded
                 overflow: auto
                 font-size: 14px
                 line-height: normal
+        a
+            font-size: 18px
+            line-height: 25px
+            text-decoration-line: underline
+            text-transform: uppercase
+            color: #FFFFFF
 
     .imageSlider
         width: 1130px

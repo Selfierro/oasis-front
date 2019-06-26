@@ -1,3 +1,295 @@
 .karaOi
+.slider
     .hooper
         height: 100vh
+        .item
+            height: 100vh
+            img
+                height: 100%
+                width: 100%
+                object-fit: cover
+.slider
+    position: relative
+    &:before
+        position: absolute
+        content: ''
+        bottom: 78px
+        z-index: 1
+        left: 50%
+        transform: translateX(-50%)
+        background-image: url(../static/svg/arrow.svg)
+        background-position: center
+        background-repeat: no-repeat
+        width: 37px
+        height: 25px
+    .hooper-pagination
+        bottom: 120px
+    .hooper-indicator
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        outline: none !important
+        background: #C7C3C3
+        opacity: 0.25
+    .hooper-indicator.is-active, .hooper-indicator:hover
+        background-color: #F18917
+        opacity: 1
+    button
+        background: rgba(16, 16, 16, 0.8)
+        outline: none !important
+        padding: 0
+    svg
+        fill: $white
+        width: 50px
+        height: 80px
+        path + path
+            width: 13px
+            height: 28px
+.aboutUs
+    padding: 56px 0
+    .wrapper
+        max-width: 924px
+        margin: 0 auto
+        h2
+            margin-bottom: 56px
+            font-weight: bold
+            font-size: 36px
+            line-height: 49px
+            text-align: center
+            color: #000000
+        p
+            font-size: 18px
+            line-height: 25px
+            text-align: center
+            color: #727272
+            margin-bottom: 40px
+    .flexContainer
+        margin: 0 auto
+        max-width: 1200px
+        padding: 60px 0
+        .flexGrid
+            display: flex
+            flex-wrap: wrap
+            margin-left: -146px
+            &.hall
+                .flexItem
+                    position: relative
+                    &:first-child
+                        &:before
+                            display: none
+                    &:before
+                        position: absolute
+                        top: 0
+                        bottom: 0
+                        left: 73px
+                        background-color: #727272
+                        width: 1px
+                        content: ''
+                    h3
+                        font-weight: bold
+                        font-size: 18px
+                        line-height: 25px
+                        text-align: center
+                        color: #000000
+                    p
+                        font-size: 18px
+                        line-height: 25px
+                        text-align: center
+                        color: #727272
+
+            .flexItem
+                width: 33.3%
+                padding-left: 146px
+                @media (max-width: 960px)
+                    width: 100%
+                h3
+                    font-size: 24px
+                    line-height: 33px
+                    text-transform: uppercase
+                    color: #000000
+                    margin-bottom: 26px
+                p
+                    font-size: 18px
+                    line-height: 25px
+                    color: #727272
+.hotel
+    h2
+        font-weight: bold
+        font-size: 36px
+        text-align: center
+        text-transform: uppercase
+        color: #000000
+        margin-bottom: 64px
+    .hotelGrid
+        &:hover
+            background: #FAFAFA
+        .ItemHotel
+            max-width: 1200px
+            margin: 0 auto
+            display: flex
+            flex-wrap: wrap
+            padding: 40px 0
+            > div
+                width: 50%
+        .hooper.smallSlide
+            height: 67px
+            .hooper-slide
+                border: 5px solid #fff
+        .hooper.bigSlide
+            height: 264px
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+        .hooper-next
+            right: 20px
+            outline: none !important
+            border-radius: 50%
+            background: rgba(16, 16, 16, 0.8)
+            padding: 0
+            width: 30px
+            height: 30px
+            fill: #fff
+            svg
+                width: 20px
+                height: 20px
+        .hooper-prev
+            left: 20px
+            outline: none !important
+            border-radius: 50%
+            background: rgba(16, 16, 16, 0.8)
+            padding: 0
+            width: 30px
+            height: 30px
+            fill: #fff
+            svg
+                width: 20px
+                height: 20px
+        .wrapperShadow
+            background: #FFFFFF
+            margin-bottom: 15px
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05)
+        .priceWrapper
+            padding: 10px 16px
+            display: flex
+            align-items: center
+            justify-content: center
+            .start
+                width: auto
+                flex: 1
+                flex-grow: 3
+                min-width: 1px
+                .rooms
+                    font-size: 24px
+                    line-height: 33px
+                    text-transform: uppercase
+                    color: #000000
+                .peoples
+                    font-size: 14px
+                    line-height: 19px
+                    text-transform: uppercase
+                    color: #000000
+
+            .end
+                width: auto
+                .prices
+                    font-size: 24px
+                    line-height: 33px
+                    text-align: right
+                    text-transform: uppercase
+                    color: #000000
+                    font-weight: bold
+    .rightSide
+        padding-left: 24px
+        label
+            font-size: 24px
+            line-height: 33px
+            text-transform: uppercase
+            color: #FFFFFF
+            background: #8EA7D0
+            width: 400px
+            height: 62px
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            margin-bottom: 20px
+        ul
+            padding: 0
+            margin: 0
+            li
+                list-style: none !important
+                font-size: 18px
+                line-height: 25px
+                color: #727272
+        h4
+            font-size: 24px
+            line-height: 33px
+            text-transform: uppercase
+            color: #000000
+            margin-bottom: 26px
+        p
+            font-size: 18px
+            line-height: 25px
+            color: #727272
+
+        h6
+            font-size: 14px
+            margin-top: 10px
+            text-transform: uppercase
+            color: #000000
+.carousel.book
+    width: 60%
+    .hooper
+        height: auto
+    img
+        border: 0
+        display: block
+.carousel
+    width: 80%
+    margin: 40px auto 100px auto
+    .hooper
+        height: 300px
+    img
+        width: 100%
+        border: 16px solid #fff
+        height: 100%
+        object-fit: cover
+    .hooper-prev
+        left: -60px
+        @media (max-width: 960px)
+            left: -40px
+    .hooper-next
+        right: -60px
+        @media (max-width: 960px)
+            right: -40px
+    button
+        background: #8EA7D0
+        outline: none !important
+        padding: 0
+        svg
+            fill: $white
+            width: 50px
+            height: 80px
+            path + path
+                width: 13px
+                height: 28px
+    .hooper-pagination
+        bottom: -40px
+    .hooper-indicator
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        outline: none !important
+        background: #C7C3C3
+        opacity: 0.25
+    .hooper-indicator.is-active, .hooper-indicator:hover
+        background-color: #505050
+        opacity: 1
+.karaOi.residence
+    .hotel .rightSide label
+        background-color: #F4AE61
+    .carousel button
+        background-color: #F4AE61
+    .secondFooter .grid .left h3
+        color: #F4AE61

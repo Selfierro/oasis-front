@@ -18,7 +18,7 @@ export default {
             {
                 rel: 'stylesheet',
                 href:
-                    'https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic'
+                    'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap&subset=cyrillic,cyrillic-ext'
             }
         ]
     },
@@ -66,6 +66,10 @@ export default {
         {
             src: '~/plugins/vue-validate.js',
             ssr: true
+        },
+        {
+            src: '~/plugins/main.js',
+            ssr: false
         }
     ],
 

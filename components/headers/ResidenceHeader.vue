@@ -10,6 +10,8 @@
                     NLink(to="/") Главная
                     NLink(to="/") О нас
                     NLink(to="/") Номера
+                    NLink(to="/conferenceHall") Конференц зал
+                    NLink(to="/restorane") Ресторан
                     NLink(to="/") Контакты
                 .rightSide
                     .mail

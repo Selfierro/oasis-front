@@ -5,35 +5,54 @@
                 .flexGrid
                     .flexItem
                         h4 OASIS REGENCY
-                        p Кыргызская Республика, <br> г. Бишкек, ул. Малдыбаева, 69
-                        <br>
-                        p +996 559 11 08 08
-                        p +996 508 11 08 08
+                        p {{ contacts.regency_address }}
+                        p {{ contacts.regency_booking_phone }}
+                        p {{ contacts.regency_booking_mobile_phone }}
                     .flexItem
                         h4 ОТДЕЛ БРОНИРОВАНИЯ
-                        p hotel@oasis-residence.com
+                        p {{ contacts.regency_booking_email }}
                     .flexItem
                         h4 Общие вопросы/предложения
-                        p office@oasis-residence.com
+                        p {{ contacts.regency_common_email }}
             .mainFlexItem.rightSide
                 .flexGrid
                     .flexItem
                         h4 OASIS кара-ой
-                        p Кыргызская Республика, <br> г. Бишкек, ул. Малдыбаева, 69
-                        <br>
-                        p +996 559 11 08 08
-                        p +996 508 11 08 08
+                        p {{ contacts.karaoi_address }}
+                        p {{ contacts.karaoi_booking_phone }}
+                        p {{ contacts.karaoi_booking_mobile_phone }}
                     .flexItem
                         h4 ОТДЕЛ БРОНИРОВАНИЯ
-                        p hotel@oasis-residence.com
+                        p {{ contacts.karaoi_booking_email }}
                     .flexItem
                         h4 Общие вопросы/предложения
-                        p office@oasis-residence.com
+                        p {{ contacts.karaoi_common_email }}
 </template>
 
 <script>
   export default {
-    name: 'Footer'
+    name: 'Footer',
+    data() {
+        return {
+            contacts: {
+                regency_address: '',
+                regency_booking_phone: '',
+                regency_booking_mobile_phone: '',
+                regency_booking_email: '',
+                regency_common_email: '',
+                karaoi_address: '',
+                karaoi_booking_phone: '',
+                karaoi_booking_mobile_phone: '',
+                karaoi_booking_email: '',
+                karaoi_common_email: '',
+            }
+        }
+    },
+    mounted() {
+        this.$nuxt.$on('CONTACTS_LOADED', (contacts) => {
+            this.contacts = contacts
+        })
+    }
   }
 </script>
 

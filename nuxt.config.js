@@ -61,7 +61,7 @@ export default {
         },
         {
             src: '~/plugins/helpers.js',
-            ssr: false
+            ssr: true
         },
         {
             src: '~/plugins/vue-validate.js',

@@ -4,8 +4,8 @@
             .flex
                 .rightSide
                     .hotelLink
-                        NLink(to="/residence").oasisResidence
-                        NLink(to="/karaOi").oasisKaraOi
+                        NLink(:to="this.$path('/residence')").oasisResidence
+                        NLink(:to="this.$path('/karaOi')").oasisKaraOi
                 .center
                 .rightSide
                     .mail

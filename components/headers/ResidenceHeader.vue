@@ -4,14 +4,14 @@
             .flex
                 .rightSide
                     .hotelLink
-                        NLink(to="/residence").oasisResidence
-                        NLink(to="/karaOi").oasisKaraOi
+                        NLink(:to="this.$path('/residence')").oasisResidence
+                        NLink(:to="this.$path('/karaOi')").oasisKaraOi
                 .center
                     NLink(to="/") Главная
                     NLink(to="/") О нас
                     NLink(to="/") Номера
-                    NLink(to="/conferenceHall") Конференц зал
-                    NLink(to="/restorane") Ресторан
+                    NLink(:to="this.$path('/conferenceHall')") Конференц зал
+                    NLink(:to="this.$path('/restorane')") Ресторан
                     NLink(to="/") Контакты
                 .rightSide
                     .mail

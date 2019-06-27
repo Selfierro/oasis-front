@@ -10,8 +10,13 @@
     methods: {
         switchLocaleInPath(newLocale) {
             let currentLocale = this.$store.getters['getLocale'];
+            let path = this.$nuxt.$route.path
 
-            return this.$nuxt.$route.path.replace(currentLocale, newLocale)
+            if (path === '/') {
+                return `/${newLocale}`
+            }
+
+            return path.replace(currentLocale, newLocale)
         }
     }
   }

@@ -19,12 +19,13 @@
                     .social
                         a(:href="contacts.regency_instagram").instagram
                         a(:href="contacts.regency_facebook").facebook
-                    .lang
-                        a(href="").active RU
-                        a(href="") ENG
+                    LS
+
 </template>
 
 <script>
+    import LS from '~/components/LocaleSwitcher'
+
     export default {
         name: 'MainHeader',
         props: {
@@ -34,6 +35,9 @@
                     return {}
                 }
             }
+        },
+        components: {
+            LS
         }
     }
 </script>

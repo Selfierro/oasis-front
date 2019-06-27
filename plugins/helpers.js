@@ -30,4 +30,7 @@ export default ({ app }, inject) => {
       }
     });
   })
+  inject('path', async (path) => {
+    return `/${app.store.getters['getLocale']}${path}`
+  })
 }

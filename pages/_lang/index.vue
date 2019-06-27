@@ -1,6 +1,6 @@
 <template lang="pug">
     div
-        MainHeader
+        MainHeader(:contacts="contacts")
         .bannerChoiceHotel.actions
             .flex.active
                 .item.leftImage
@@ -17,74 +17,41 @@
                     .flex
                         .btn(:class="residence_book_active ? 'active': ''", @click="residence_book_active = !residence_book_active") Residence
                         .btn(:class="!residence_book_active ? 'active': ''", @click="residence_book_active = !residence_book_active") кара-ой
-                    BookingForm(v-show="residence_book_active")
-                    BookingForm(v-show="!residence_book_active")
+                    BookingForm(v-show="residence_book_active", :rooms_choices="index_page.residence_rooms")
+                    BookingForm(v-show="!residence_book_active", :rooms_choices="index_page.karaoi_rooms")
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
-                slide
+                slide(v-for="(item, index) in index_page.news" :key="`news-${index}`")
                     div
                         h2 новости и мероприятия
-                        h3 What is Lorem Ipsum?
-                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorum ducimus hic illo laudantium nobis officiis possimus praesentium quis repellendus?
-                        NLink(to="/") ПОДРОБНЕЕ
-                slide
-                    div
-                        h2 новости и мероприятия
-                        h3 What is Lorem Ipsum?
-                        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                        h3 {{ item.title }}
+                        p {{ item.short_description }}
                         NLink(to="/") ПОДРОБНЕЕ
 
             hooper(ref='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider")
-                slide
-                    img(src="~/static/jpg/slide.jpg")
-                slide
-                    img(src="~/static/jpg/nomer.jpg")
+                slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`")
+                    img(:src="item.image")
                 hooper-navigation(slot='hooper-addons')
         .aboutOasis
             .container
                 h2 почему вы должны выбрать отель “ОASIS”
                 .flexGrid
-                    .flexItem
-                        div(style="background-image: url(/svg/location.svg)")
-                            h3 Удобное расположение
-                            p за настоящий пятизвездочный отель в Кыргызстане
-                    .flexItem
-                        div(style="background-image: url(/svg/24-hours.svg)")
-                            h3 Круглосуточное обслуживание
-                            p Ваш номер будет готов к заселению в любое время дня и ночи
-                    .flexItem
-                        div(style="background-image: url(/svg/key.svg)")
-                            h3 Просторные номера
-                            p 96 номеров восьми категорий в Jannat Regency и 85 номеров четырех категорий в Jannat Resort
-                    .flexItem
-                        div(style="background-image: url(/svg/tray.svg)")
-                            h3 Собственный ресторан и бар
-                            p банкетных залов, а также аллеи бракосочетания позволят сделать Ваше мероприятие в нашей гостинице особенным и запоминающимся
-                    .flexItem
-                        div(style="background-image: url(/svg/parking.svg)")
-                            h3 Парковка для автомобилей
-                            p с кристально чистой водой, и сауна позволят сохранить и укрепить форму во время Вашего пребывания у нас
-                    .flexItem
-                        div(style="background-image: url(/svg/conference.svg)")
-                            h3 Конференц-зал
-                            p Современные и функциональные конференц-залы позволят провести Ваше мероприятие на самом высоком уровне
+                    .flexItem(v-for="(item, index) in index_page.info", :key="`info-${index}`")
+                        div(:style="`background-image: url(${item.icon})`")
+                            h3 {{ item.title }}
+                            p {{ item.text }}
         .reviews
             .container
                 hooper(:settings="hooperSettings")
-                    slide(v-for="(slide, index) in 5" :key="index")
+                    slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`")
                         div.item
-                            img(src="~/static/svg/Booking.com_logo.svg")
-                            h5 Имя фамилия
-                            span Март {{ index + 4 }} 2019
-                            p.
-                                Расположение отеля - огонь!
-                                От ТЦ Галерея - минут 5 неспешно.
-                                Новый отель, свежий, чудесная кровать.
-                                Номер "Стандарт" был очень приличного размера, просторный и 2 больших высоких окна. Сам холл в стиле лофт, очень красиво всё сделано.
-                                Всё свежее, добротно сделано, кровать - выше всех похвал, удобная и высокая. Внизу душевнейший ресторан грузинской кухни, пальцы скушать можно :)
+                            img(:src="feedback.logo")
+                            h5 {{ feedback.full_name }}
+                            span {{ feedback.date }}
+                            p {{ feedback.comment }}
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')
-        MainFooter
+        MainFooter(:contacts="contacts")
 </template>
 
 <script>
@@ -121,9 +88,22 @@
                         }
                     },
                 },
-                residence_book_active: true
+                residence_book_active: true,
+                contacts: {}
             }
-        }
+        },
+        async asyncData({params, app}) {
+            const index_result = await app.$api('get', '/index')
+
+            return {
+                index_page: index_result['response']
+            }
+        },
+        mounted() {
+            let contacts = this.index_page.contacts
+
+            this.contacts = contacts.length > 0 ? contacts[0]: {}
+        },
     }
 
 </script>

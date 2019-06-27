@@ -2,6 +2,7 @@ export default ({ app }, inject) => {
   inject('api', async (method, url, data, content_type = 'application/json', additional_headers = {}) => {
     let axios = app.$axios
     let token = app.store.getters['auth/getToken']
+    let locale = app.store.getters['getLocale']
     let headers = {
       'Content-Type': content_type
     }
@@ -26,6 +27,12 @@ export default ({ app }, inject) => {
       }
 
       data = formData
+    }
+
+    if (url.includes('?')) {
+        url += `&lang=${locale}`
+    } else {
+        url += `?lang=${locale}`
     }
 
     for (let i in additional_headers) {

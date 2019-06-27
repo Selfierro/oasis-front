@@ -24,6 +24,12 @@ export const actions = {
   }
 }
 
+export const getters = {
+    getLocale(state) {
+        return state.locale
+    }
+}
+
 export const mutations = {
     SET_LANG(state, locale) {
         if (state.locales.indexOf(locale) !== -1) {

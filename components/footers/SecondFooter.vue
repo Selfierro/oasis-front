@@ -24,21 +24,13 @@
 <script>
     export default {
         name: 'Footer',
-        data() {
-            return {
-                contacts: {
-                    karaoi_address: '',
-                    karaoi_booking_phone: '',
-                    karaoi_booking_mobile_phone: '',
-                    karaoi_booking_email: '',
-                    karaoi_common_email: '',
+        props: {
+            contacts: {
+                type: Object,
+                default: () => {
+                    return {}
                 }
             }
-        },
-        mounted() {
-            this.$nuxt.$on('CONTACTS_LOADED', (contacts) => {
-                this.contacts = contacts
-            })
         }
     }
 </script>

@@ -73,7 +73,7 @@ export default {
         },
         {
             src: '~/plugins/i18n.js',
-            ssr: false
+            ssr: true
         }
     ],
 
@@ -111,5 +111,9 @@ export default {
                 })
             }
         }
-    }
+    },
+
+    router: {
+        middleware: 'i18n'
+    },
 }

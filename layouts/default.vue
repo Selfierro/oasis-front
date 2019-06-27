@@ -27,7 +27,7 @@
                     class: this.htmlClass
                 }
             }
-        }
+        },
     }
 </script>
 

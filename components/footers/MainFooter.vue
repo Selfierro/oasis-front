@@ -32,26 +32,13 @@
 <script>
   export default {
     name: 'Footer',
-    data() {
-        return {
-            contacts: {
-                regency_address: '',
-                regency_booking_phone: '',
-                regency_booking_mobile_phone: '',
-                regency_booking_email: '',
-                regency_common_email: '',
-                karaoi_address: '',
-                karaoi_booking_phone: '',
-                karaoi_booking_mobile_phone: '',
-                karaoi_booking_email: '',
-                karaoi_common_email: '',
+    props: {
+        contacts: {
+            type: Object,
+            default: () => {
+                return {}
             }
         }
-    },
-    mounted() {
-        this.$nuxt.$on('CONTACTS_LOADED', (contacts) => {
-            this.contacts = contacts
-        })
     }
   }
 </script>

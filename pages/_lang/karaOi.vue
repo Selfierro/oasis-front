@@ -1,6 +1,6 @@
 <template lang="pug">
-    div.karaOi.residence
-        ResidenceHeader
+    div.karaOi
+        KaraOiHeader
         .slider
 
             hooper(:settings="hooperSettings")
@@ -49,7 +49,7 @@
                     .leftSide
                         .wrapperShadow
                             hooper(sync='slider1' :settings="hooperSettings2").bigSlide
-                                slide(v-for="(item, index) in 7" :key="index")
+                                slide(v-for="item in 7" :key="index")
                                     img(src="~/static/jpg/nomer.jpg")
                                 hooper-navigation(slot='hooper-addons')
                             .priceWrapper
@@ -59,7 +59,7 @@
                                 div.end
                                     .prices 1000 сом
                         hooper(ref='slider1' :settings="hooperSettings3").smallSlide
-                            slide(v-for="(item, index) in 7" :key="index")
+                            slide(v-for="item in 7" :key="index")
                                 img(src="~/static/jpg/nomer.jpg")
                     .rightSide
                         label() забронировать
@@ -79,7 +79,7 @@
                     .leftSide
                         .wrapperShadow
                             hooper(sync='slider2' :settings="hooperSettings2").bigSlide
-                                slide(v-for="(item, index) in 7" :key="index")
+                                slide(v-for="item in 7" :key="index")
                                     img(src="~/static/jpg/nomer.jpg")
                                 hooper-navigation(slot='hooper-addons')
                             .priceWrapper
@@ -89,7 +89,7 @@
                                 div.end
                                     .prices 1000 сом
                         hooper(ref='slider2' :settings="hooperSettings3").smallSlide
-                            slide(v-for="(item, index) in 7" :key="index")
+                            slide(v-for="item in 7" :key="index")
                                 img(src="~/static/jpg/nomer.jpg")
                     .rightSide
                         label() забронировать
@@ -109,7 +109,7 @@
                     .leftSide
                         .wrapperShadow
                             hooper(:settings="hooperSettings2").bigSlide
-                                slide(v-for="(item, index) in 7" :key="index")
+                                slide(v-for="item in 7" :key="index")
                                     img(src="~/static/jpg/nomer.jpg")
                                 hooper-navigation(slot='hooper-addons')
                     .rightSide
@@ -117,7 +117,7 @@
                         p Каждый день с 7:00 до 10:00 в ресторане "Хачо и Пури" наших гостей ждет сытный завтрак (шведский стол), с возможностью заказа еды в номер.
         .carousel
             hooper(:settings="hooperSettings4")
-                slide(v-for="(item, index) in 7" :key="index")
+                slide(v-for="item in 7" :key="index")
                     img(src="~/static/jpg/nomer.jpg")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
@@ -125,15 +125,15 @@
 </template>
 
 <script>
-    import ItemHotel from '../components/ItemHotel'
-    import ResidenceHeader from '../components/headers/ResidenceHeader'
-    import SecondFooter from '../components/footers/SecondFooter'
-    import BookingForm from '../components/BookingForm'
+    import ItemHotel from '~/components/ItemHotel'
+    import KaraOiHeader from '~/components/headers/KaraOiHeader'
+    import SecondFooter from '~/components/footers/SecondFooter'
+    import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
 
     export default {
-        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ItemHotel },
+        components: { KaraOiHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ItemHotel },
         data () {
             return {
                 hooperSettings: {

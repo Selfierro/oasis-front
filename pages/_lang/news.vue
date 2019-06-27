@@ -27,8 +27,8 @@
 </template>
 
 <script>
-    import MainHeader from '../components/headers/MainHeader'
-    import MainFooter from '../components/footers/MainFooter'
+    import MainHeader from '~/components/headers/MainHeader'
+    import MainFooter from '~/components/footers/MainFooter'
     import { Hooper, Slide, Navigation as HooperNavigation   } from 'hooper'
     import 'hooper/dist/hooper.css'
 

@@ -44,10 +44,10 @@
 </template>
 
 <script>
-    import ItemHotel from '../components/ItemHotel'
-    import ResidenceHeader from '../components/headers/ResidenceHeader'
-    import SecondFooter from '../components/footers/SecondFooter'
-    import BookingForm from '../components/BookingForm'
+    import ItemHotel from '~/components/ItemHotel'
+    import ResidenceHeader from '~/components/headers/ResidenceHeader'
+    import SecondFooter from '~/components/footers/SecondFooter'
+    import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
 

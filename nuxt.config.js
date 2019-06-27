@@ -70,6 +70,10 @@ export default {
         {
             src: '~/plugins/main.js',
             ssr: false
+        },
+        {
+            src: '~/plugins/i18n.js',
+            ssr: false
         }
     ],
 

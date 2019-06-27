@@ -15,9 +15,10 @@
                 p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
                 .wrapper
                     .flex
-                        .btn.active Residence
-                        .btn кара-ой
-                    BookingForm
+                        .btn(:class="residence_book_active ? 'active': ''", @click="residence_book_active = !residence_book_active") Residence
+                        .btn(:class="!residence_book_active ? 'active': ''", @click="residence_book_active = !residence_book_active") кара-ой
+                    BookingForm(v-show="residence_book_active")
+                    BookingForm(v-show="!residence_book_active")
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
                 slide
@@ -119,7 +120,8 @@
                             itemsToShow: 3,
                         }
                     },
-                }
+                },
+                residence_book_active: true
             }
         }
     }

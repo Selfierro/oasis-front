@@ -13,18 +13,26 @@ header
         display: flex
         align-items: center
         justify-content: space-between
+        @media (max-width: 1450px)
+            height: 60px
     .hotelLink
         a
             display: inline-block
             background-repeat: no-repeat
             background-position: center
             margin: 0 40px
+            @media (max-width: 1450px)
+                margin: 0 5px
 
     .oasisResidence
         width: 123px
         height: 47px
         animation: zoom 3s ease infinite
         background-image: url(../static/svg/oasisResidence.svg)
+        -webkit-background-size: contain
+        background-size: contain
+        @media (max-width: 1450px)
+            height: 40px
         @keyframes zoom
             0%
                 transform: scale(1)
@@ -36,6 +44,10 @@ header
         width: 130px
         height: 47px
         background-image: url(../static/svg/oasisKaraOi.svg)
+        -webkit-background-size: contain
+        background-size: contain
+        @media (max-width: 1450px)
+            height: 40px
         animation: zoom2 3s 1.5s ease infinite
 
         @keyframes zoom2
@@ -53,6 +65,8 @@ header
             line-height: 22px
             color: #727272
             text-decoration: none
+            @media (max-width: 1450px)
+                font-size: 12px
     .rightSide
         display: flex
         .mail
@@ -78,6 +92,7 @@ header
                 width: 20px
                 height: 20px
                 @include tr0-3
+
             .instagram
                 mask: url(../static/svg/instagram.svg)
                 background-color: $gray

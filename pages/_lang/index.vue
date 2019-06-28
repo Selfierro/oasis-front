@@ -42,6 +42,7 @@
                             p {{ item.text }}
         .reviews
             .container
+                h2 отзывы
                 hooper(:settings="hooperSettings")
                     slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`")
                         div.item

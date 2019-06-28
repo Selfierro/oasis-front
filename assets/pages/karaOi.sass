@@ -47,6 +47,8 @@
             height: 28px
 .aboutUs
     padding: 56px 0
+    @media (max-width: 1450px)
+        padding: 56px 0 0 0
     .wrapper
         max-width: 924px
         margin: 0 auto
@@ -56,21 +58,45 @@
             font-size: 36px
             line-height: 49px
             text-align: center
+            text-transform: uppercase
             color: #000000
+            @media (max-width: 1450px)
+                font-size: 24px
+                line-height: normal
+                margin-bottom: 24px
         p
             font-size: 18px
             line-height: 25px
             text-align: center
             color: #727272
             margin-bottom: 40px
+            @media (max-width: 1450px)
+                font-size: 14px
+    .flexContainer.hall
+        @media (max-width: 1450px)
+            max-width: 900px
+        .flexGrid.hall
+            @media (max-width: 1450px)
+                margin-left: -50px
+            .flexItem
+                &:before
+                    @media (max-width: 1450px)
+                        left: 45px
+                @media (max-width: 1450px)
+                    padding-left: 50px
     .flexContainer
         margin: 0 auto
         max-width: 1200px
         padding: 60px 0
+        @media (max-width: 1450px)
+            max-width: 1050px
+
         .flexGrid
             display: flex
             flex-wrap: wrap
             margin-left: -146px
+            @media (max-width: 1450px)
+                margin-left: -100px
             &.hall
                 .flexItem
                     position: relative
@@ -91,15 +117,24 @@
                         line-height: 25px
                         text-align: center
                         color: #000000
+                        @media (max-width: 1450px)
+                            font-size: 12px
+                            line-height: normal
+                            margin-bottom: 10px
                     p
                         font-size: 18px
                         line-height: 25px
                         text-align: center
                         color: #727272
+                        @media (max-width: 1450px)
+                            font-size: 10px
+                            line-height: 19px
 
             .flexItem
                 width: 33.3%
                 padding-left: 146px
+                @media (max-width: 1450px)
+                    padding-left: 100px
                 @media (max-width: 960px)
                     width: 100%
                 h3
@@ -108,10 +143,16 @@
                     text-transform: uppercase
                     color: #000000
                     margin-bottom: 26px
+                    @media (max-width: 1450px)
+                        font-size: 15px
+                        line-height: normal
                 p
                     font-size: 18px
                     line-height: 25px
                     color: #727272
+                    @media (max-width: 1450px)
+                        font-size: 12px
+                        line-height: normal
 .hotel
     h2
         font-weight: bold
@@ -120,6 +161,9 @@
         text-transform: uppercase
         color: #000000
         margin-bottom: 64px
+        @media (max-width: 1450px)
+            font-size: 24px
+            margin-bottom: 10px
     .hotelGrid
         &:hover
             background: #FAFAFA
@@ -129,6 +173,8 @@
             display: flex
             flex-wrap: wrap
             padding: 40px 0
+            @media (max-width: 1450px)
+                max-width: 950px
             > div
                 width: 50%
         .hooper.smallSlide
@@ -136,7 +182,9 @@
             .hooper-slide
                 border: 5px solid #fff
         .hooper.bigSlide
-            height: 264px
+            height: 364px
+            @media (max-width: 1450px)
+                height: 300px
             img
                 width: 100%
                 height: 100%
@@ -184,11 +232,16 @@
                     line-height: 33px
                     text-transform: uppercase
                     color: #000000
+                    @media (max-width: 1450px)
+                        font-size: 18px
+                        line-height: normal
                 .peoples
                     font-size: 14px
                     line-height: 19px
                     text-transform: uppercase
                     color: #000000
+                    @media (max-width: 1450px)
+                        font-size: 12px
 
             .end
                 width: auto
@@ -199,6 +252,8 @@
                     text-transform: uppercase
                     color: #000000
                     font-weight: bold
+                    @media (max-width: 1450px)
+                        font-size: 17px
     .rightSide
         padding-left: 24px
         label
@@ -207,13 +262,17 @@
             text-transform: uppercase
             color: #FFFFFF
             background: #8EA7D0
-            width: 400px
+            max-width: 400px
             height: 62px
             display: flex
             align-items: center
             justify-content: center
             cursor: pointer
             margin-bottom: 20px
+            @media (max-width: 1450px)
+                font-size: 17px
+                height: 40px
+                max-width: 300px
         ul
             padding: 0
             margin: 0
@@ -222,22 +281,31 @@
                 font-size: 18px
                 line-height: 25px
                 color: #727272
+                @media (max-width: 1450px)
+                    font-size: 13px
+                    line-height: 20px
         h4
             font-size: 24px
             line-height: 33px
             text-transform: uppercase
             color: #000000
             margin-bottom: 26px
+            @media (max-width: 1450px)
+                font-size: 18px
         p
             font-size: 18px
             line-height: 25px
             color: #727272
+            @media (max-width: 1450px)
+                font-size: 14px
 
         h6
             font-size: 14px
             margin-top: 10px
             text-transform: uppercase
             color: #000000
+            @media (max-width: 1450px)
+                font-size: 12px
 .carousel.book
     width: 60%
     .hooper
@@ -250,6 +318,8 @@
     margin: 40px auto 100px auto
     .hooper
         height: 300px
+        @media (max-width: 1450px)
+            height: 250px
     img
         width: 100%
         border: 16px solid #fff
@@ -271,9 +341,15 @@
             fill: $white
             width: 50px
             height: 80px
+            @media (max-width: 1450px)
+                width: 40px
+                height: 60px
             path + path
                 width: 13px
                 height: 28px
+                @media (max-width: 1450px)
+                    width: 7px
+                    height: 22px
     .hooper-pagination
         bottom: -40px
     .hooper-indicator

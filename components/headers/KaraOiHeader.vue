@@ -5,7 +5,7 @@
                 .rightSide
                     .hotelLink
                         NLink(:to="this.$path('/residence')").oasisResidence
-                        NLink(:to="this.$path('/karaOi')").oasisKaraOi
+                        NLink(:to="this.$path('/karaoi')").oasisKaraOi
                 .center
                     NLink(to="/") Главная
                     NLink(to="/") О нас

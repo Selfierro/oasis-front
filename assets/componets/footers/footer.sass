@@ -2,6 +2,8 @@
     background: #292621
     color: #fff
     padding: 60px 8.3%
+    @media (max-width: 1450px)
+        padding: 40px 2%
     @media (max-width: 1366px)
         padding: 40px
     @media (max-width: 960px)
@@ -30,6 +32,11 @@
 
                 h4
                     color: #8EA7D0
+                    @media (max-width: 1450px)
+                        font-size: 13px
+                p
+                    @media (max-width: 1450px)
+                        font-size: 11px
             &.leftSide
                 padding-right: 40px
                 border-right: 1px solid $white
@@ -41,6 +48,11 @@
                     border-bottom: 1px solid $white
                 h4
                     color: #F4AE61
+                    @media (max-width: 1450px)
+                        font-size: 13px
+                p
+                    @media (max-width: 1450px)
+                        font-size: 11px
             .flexGrid
                 display: flex
                 flex-wrap: wrap
@@ -69,10 +81,15 @@
             h3
                 color: #8EA7D0
                 margin-bottom: 17px
+                @media (max-width: 1450px)
+                    font-size: 12px
+
             p
                 font-size: 12px
                 line-height: 16px
                 color: #FFFFFF
+                @media (max-width: 1450px)
+                    font-size: 10px
             p + p
                 margin: 0
             p

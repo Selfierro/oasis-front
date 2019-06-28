@@ -70,6 +70,10 @@ html.loaded
 .reservation
     padding: 100px 0
     margin: 0 8.3%
+    @media (max-width: 1450px)
+        padding: 50px 0
+        margin: 0 5%
+
     @media (max-width: 640px)
         padding: 50px 0
         margin: 0 1%
@@ -80,6 +84,10 @@ html.loaded
         font-size: 36px
         line-height: 49px
         color: $black
+        @media (max-width: 1450px)
+            font-size: 24px
+            line-height: normal
+            margin-bottom: 30px
         @media (max-width: 640px)
             line-height: normal
             font-size: 20px
@@ -90,6 +98,10 @@ html.loaded
         line-height: 25px
         color: $gray
         margin-bottom: 64px
+        @media (max-width: 1450px)
+            font-size: 16px
+            line-height: normal
+            margin-bottom: 32px
         @media (max-width: 640px)
             margin-bottom: 30px
             font-size: 15px
@@ -115,6 +127,10 @@ html.loaded
             font-size: 24px
             color: #292621
             @include tr0-3
+            @media (max-width: 1450px)
+                width: 290px
+                height: 45px
+                font-size: 18px
             @media (max-width: 640px)
                 font-size: 18px
             &:hover
@@ -131,11 +147,13 @@ html.loaded
             width: 608px
             @media (max-width: 1600px)
                 width: 48%
+            @media (max-width: 1450px)
+                width: 40%
             @media (max-width: 960px)
                 width: 100%
             > div
                 margin-bottom: 40px
-                @media (max-width: 640px)
+                @media (max-width: 1450px)
                     margin-bottom: 20px
     .nameForm
         font-size: 18px
@@ -146,7 +164,7 @@ html.loaded
         background-image: url(../static/svg/bed.svg)
         background-repeat: no-repeat
         background-position: right center
-        @media (max-width: 640px)
+        @media (max-width: 1450px)
             font-size: 14px
     .flexGridInner
         margin-left: -11px
@@ -174,7 +192,7 @@ html.loaded
                 font-size: 16px
                 line-height: 110%
                 color: $black
-                @media (max-width: 1400px)
+                @media (max-width: 1450px)
                     font-size: 12px
                 @media (max-width: 640px)
                     line-height: normal
@@ -214,7 +232,7 @@ html.loaded
         border-bottom: 1px solid $black
         background-repeat: no-repeat
         background-position: right center
-        @media (max-width: 640px)
+        @media (max-width: 1450px)
             font-size: 14px
         &#dataIn
             background-image: url(../static/svg/calendar.svg)
@@ -242,9 +260,12 @@ html.loaded
         background-color: #292621
         color: $white
         font-size: 24px
-        line-height: 33px
         cursor: pointer
         text-transform: uppercase
+        @media (max-width: 1450px)
+            width: 290px   
+            height: 45px   
+            font-size: 18px
         @media (max-width: 640px)
             width: 100%
             margin: 30px auto 0 auto
@@ -253,6 +274,8 @@ html.loaded
     display: flex
     height: 560px
 
+    @media (max-width: 1450px)
+        height: 450px
     @media (max-width: 960px)
         height: auto
         flex-wrap: wrap
@@ -267,6 +290,8 @@ html.loaded
                 padding: 20px
                 overflow: auto
                 max-height: 100%
+                @media (max-width: 1450px)
+                    width: 75%
     .imageText
         flex: 1
         flex-grow: 3
@@ -347,9 +372,15 @@ html.loaded
         fill: $white
         width: 50px
         height: 80px
+        @media (max-width: 1450px)
+            width: 40px
+            height: 60px
         path + path
             width: 13px
             height: 28px
+            @media (max-width: 1450px)
+                height: 22px
+                width: 7px
 .aboutOasis
     padding: 64px 16.6%
     @media (max-width: 1600px)
@@ -366,6 +397,9 @@ html.loaded
         text-transform: uppercase
         color: #000000
         margin-bottom: 80px
+        @media (max-width: 1450px)
+            margin-bottom: 50px
+            font-size: 20px
         @media (max-width: 640px)
             font-size: 20px
             line-height: normal
@@ -394,6 +428,10 @@ html.loaded
                 padding-left: 98px
                 background-repeat: no-repeat
                 background-position: left top
+                @media (max-width: 1450px)
+                    padding-left: 60px
+                    -webkit-background-size: 40px
+                    background-size: 40px
                 @media (max-width: 1200px)
                     padding-left: 70px
                 @media (max-width: 640px)
@@ -404,18 +442,28 @@ html.loaded
             line-height: 25px
             color: $black
             margin-bottom: 15px
+            @media (max-width: 1450px)
+                font-size: 12px
+                margin-bottom: 10px
         p
             font-size: 12px
             line-height: 17px
             color: rgba(0, 0, 0, 0.56)
+            @media (max-width: 1450px)
+                font-size: 11px
 .reviews
     padding: 64px 16.6%
     @media (max-width: 1600px)
-        padding: 64px 8.3%
+        padding: 0 8.3% 64px 8.3%
     @media (max-width: 1200px)
         padding: 40px 5%
     @media (max-width: 640px)
         padding: 30px 1%
+    h2
+        font-size: 24px
+        text-transform: uppercase
+        text-align: center
+        color: #000
     .hooper
         height: auto
         outline: none !important
@@ -446,17 +494,25 @@ html.loaded
             line-height: 33px
             text-transform: uppercase
             color: $black
+            @media (max-width: 1450px)
+                font-size: 16px
+                line-height: 22px
         span
             font-size: 18px
             line-height: 25px
             color: #C39D81
             display: block
             margin: 20px 0
+            @media (max-width: 1450px)
+                font-size: 14px
+                margin: 10px 0
         p
             font-weight: 300
             font-size: 18px
             line-height: 25px
             color: $black
+            @media (max-width: 1450px)
+                font-size: 12px
             @media (max-width: 640px)
                 font-size: 12px
                 line-height: normal

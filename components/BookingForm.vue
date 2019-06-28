@@ -24,7 +24,7 @@
                             label
                                 input(type="checkbox", v-model="rooms", :value="item.id")
                                 span.indicator
-                                img(:src="item.image")
+                                img(:src="getImage(item.gallery)")
                                 | {{ item.title }}
         button(type="submit").send забронировать
 </template>
@@ -49,7 +49,7 @@
             children_quantity: '',
             leaving_date: '',
             email: '',
-            rooms: []
+            rooms: [],
         }
     },
     methods: {
@@ -64,6 +64,9 @@
             //     full_name: this.full_name,
             //     email: this.email,
             // })
+        },
+        getImage(gallery) {
+            return gallery.length > 0 ? gallery[0].image : null
         }
     }
   }

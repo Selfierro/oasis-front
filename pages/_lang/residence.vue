@@ -48,6 +48,18 @@
                         label() забронировать
                         p(v-html="item.description")
                         h6 {{ item.additional_text }}
+
+            .hotelGrid(v-for="(item, index) in about_page.residence_additional_services" :key="`room-${index}`" :index="index")
+                .ItemHotel
+                    .leftSide
+                        .wrapperShadow
+                            hooper(:settings="hooperSettings2").bigSlide
+                                slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-as-${index}-${slideIndex}`" :index="slideIndex")
+                                    img(:src="slide.image")
+                                hooper-navigation(slot='hooper-addons')
+                    .rightSide
+                        h4 {{ item.title }}
+                        p(v-html="item.text")
         .carousel
            hooper(:settings="hooperSettings4")
                 slide(v-for="(slide, slideIndex) in about_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
@@ -122,7 +134,7 @@
         },
         mounted() {
             let contacts = this.about_page.contacts
-            let info = this.about_page.info
+            let info = this.about_page.residence_info
 
             this.contacts = contacts.length > 0 ? contacts[0]: {}
             this.about_text = info.length > 0 ? info[0].text: {}

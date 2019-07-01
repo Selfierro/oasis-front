@@ -6,8 +6,6 @@ header
     background: $white
     @include bs0-4-26
     position: fixed
-    @media (max-width: 960px)
-        display: none
     .flex
         height: 70px
         display: flex
@@ -23,7 +21,8 @@ header
             margin: 0 40px
             @media (max-width: 1450px)
                 margin: 0 5px
-
+            @media (max-width: 1600px)
+                margin: 0 10px
     .oasisResidence
         width: 123px
         height: 47px
@@ -59,6 +58,8 @@ header
                 transform: scale(1)
     .center
         display: flex
+        @media (max-width: 1340px)
+            display: none
         a
             padding: 0 15px
             font-size: 16px
@@ -67,8 +68,24 @@ header
             text-decoration: none
             @media (max-width: 1450px)
                 font-size: 12px
+            @media (max-width: 1600px)
+                padding: 0 11px
+                font-size: 14px
     .rightSide
         display: flex
+        @media (max-width: 1340px)
+            display: none
+        .phone
+            margin-right: 22px
+            a
+                padding-left: 28px
+                background-image: url(../static/svg/local_phone_24px.svg)
+                background-repeat: no-repeat
+                background-position: left center
+                font-size: 16px
+                color: $gray
+                text-decoration: none
+
         .mail
             margin-right: 22px
             a
@@ -118,3 +135,86 @@ header
                     color: $orange
                 &:nth-child(2)
                     margin-left: 10px
+.mobileBurger
+    @media (min-width: 1340px)
+        display: none
+    > span
+        font-weight: bold
+    .dropdown.active
+        display: block
+    .dropdown
+        display: none
+        position: absolute
+        background: #fff
+        right: 0
+        padding: 20px 10px
+        min-width: 200px
+        top: 60px
+        box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.04)
+        .link
+            a
+                display: block
+                padding: 10px
+                border-bottom: 1px solid rgba(0, 0, 0, 0.4)
+                color: #000
+                text-decoration: none
+        .lang
+            padding: 20px 0
+            display: flex
+            justify-content: center
+            align-items: center
+            a
+                display: inline-flex
+                color: $gray
+                text-decoration: none
+                @include tr0-3
+                &:hover
+                    color: $orange
+                &.active
+                    font-weight: bold
+                    color: $orange
+                &:nth-child(2)
+                    margin-left: 10px
+        .social
+            display: flex
+            align-items: center
+            justify-content: center
+            padding: 0 0 20px 0
+            a
+                margin: 0 22px
+                display: inline-flex
+                background-repeat: no-repeat
+                background-position: center
+                width: 20px
+                height: 20px
+                @include tr0-3
+
+            .instagram
+                mask: url(../static/svg/instagram.svg)
+                background-color: $gray
+                &:hover
+                    background-color: $orange
+            .facebook
+                mask: url(../static/svg/facebook.svg)
+                background-color: $gray
+                &:hover
+                    background-color: $orange
+        .phone
+            a
+                padding-left: 28px
+                background-image: url(../static/svg/local_phone_24px.svg)
+                background-repeat: no-repeat
+                background-position: left center
+                font-size: 16px
+                color: $gray
+                text-decoration: none
+
+        .mail
+            a
+                padding-left: 24px
+                background-image: url(../static/svg/mailHeader.svg)
+                background-repeat: no-repeat
+                background-position: left center
+                font-size: 16px
+                color: $gray
+                text-decoration: none

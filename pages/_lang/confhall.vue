@@ -1,46 +1,31 @@
 <template lang="pug">
     div.karaOi.residence
-        ResidenceHeader
+        ResidenceHeader(:contacts="contacts")
         .slider
 
             hooper(:settings="hooperSettings")
-                slide(v-for="(slide, index) in 5" :key="index")
+                slide(v-for="(slide, index) in conf_page.top_residence_slides" :key="`conference-top=${index}`", :index="index")
                     div.item
-                        img(src="~/static/jpg/slide2.jpg")
+                        img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
         .aboutUs
             .container
                 .wrapper
                     h2 Конференц зал
-                    p.
-                        Останавливаясь в нашем отеле Вы насладитесь элегантным и изысканным пространством, в которое захочется снова и снова возвращаться.
-
-                    p.
-                        Команда Отеля  «OASIS Residence» сделает все возможное что бы Ваше пребывание было максимально комфортным и поможет Вам почувствовать все тонкости «современного гостеприимства».
-                    p.
-                        Конференц-зал на 1 этаже отеля
-                        Оборудован проектором, переносным экраном, флипчарт, микрофоном.
-                        А также, гостям предоставляются канцелярские принадлежности и вода.
+                    p(v-html="about_text")
                 .flexContainer.hall
                     .flexGrid.hall
-                        .flexItem
-                            h3 Вместимость до 40 человек при театральной рассадке
-                            p 80$ (полный день - 8 часов)
-                            p 40 $ (пол дня - 4 часа)
-                        .flexItem
-                            h3 Стоимость кофе-брейка
-                            p от 6 $ (на 1 персону)
-                        .flexItem
-                            h3 Стоимость обеда
-                            p от 10 $ (на 1 персону)
+                        .flexItem(v-for="(item, index) in about_text_additional" :key="`about-text-${index}`", :index="index")
+                            h3 {{ item.title }}
+                            p(v-html="item.text")
         .carousel
             hooper(:settings="hooperSettings4")
-                slide(v-for="item in 7" :key="index")
-                    img(src="~/static/jpg/nomer.jpg")
+                slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom=${index}`", :index="index")
+                    img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
-        SecondFooter
+        SecondFooter(:contacts="contacts")
 </template>
 
 <script>
@@ -93,9 +78,27 @@
                             itemsToShow: 3
                         },
                     }
-                }
+                },
+                contacts: {},
+                about_text: '',
+                about_text_additional: []
             }
-        }
+        },
+        async asyncData({params, app}) {
+            const conference_result = await app.$api('get', '/conference')
+
+            return {
+                conf_page: conference_result['response']
+            }
+        },
+        mounted() {
+            let contacts = this.conf_page.contacts
+            let info = this.conf_page.info
+
+            this.contacts = contacts.length > 0 ? contacts[0]: {}
+            this.about_text = info.length > 0 ? info[0].text: {}
+            this.about_text_additional = info.length > 0 ? info[0].additional: []
+        },
     }
 </script>
 

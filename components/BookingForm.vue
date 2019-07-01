@@ -39,13 +39,10 @@
 </template>
 
 <script>
-  // import { Datetime } from 'vue-datetime';
-  // import 'vue-datetime/dist/vue-datetime.css'
-
   export default {
     name: 'BookingForm',
     components: {
-        // Datetime
+
     },
     props: {
         rooms_choices: {

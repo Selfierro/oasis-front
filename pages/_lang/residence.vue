@@ -45,7 +45,7 @@
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
                                 img(:src="slide.image")
                     .rightSide
-                        label() забронировать
+                        label(@click="bookRoom(item.id)") забронировать
                         p(v-html="item.description")
                         h6 {{ item.additional_text }}
 
@@ -157,6 +157,11 @@
             this.contacts = contacts.length > 0 ? contacts[0] : {}
             this.about_text = info.length > 0 ? info[0].text : {}
             this.about_text_additional = info.length > 0 ? info[0].additional : []
+        },
+        methods: {
+            bookRoom(id) {
+                this.$nuxt.$emit('ROOM_CHOSEN', id)
+            }
         }
     }
 </script>

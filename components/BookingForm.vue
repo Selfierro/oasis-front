@@ -68,6 +68,11 @@
         getImage(gallery) {
             return gallery.length > 0 ? gallery[0].image : null
         }
+    },
+    mounted() {
+        this.$nuxt.$on('ROOM_CHOSEN', (id) => {
+            this.rooms.push(id)
+        })
     }
   }
 </script>

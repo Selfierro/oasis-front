@@ -61,11 +61,29 @@
                         h4 {{ item.title }}
                         p(v-html="item.text")
         .carousel
-           hooper(:settings="hooperSettings4")
+            hooper(:settings="hooperSettings4")
                 slide(v-for="(slide, slideIndex) in about_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
+        .textBlock
+            .grid
+                .text
+                    h3 В стоимость номера входит:
+                    p Трансфер
+                    p Трансфер
+                    p Трансфер
+                    p Трансфер
+                .text
+                    h3 Так же к Вашим услугам в «OASIS Residence»:
+                    p Возможность заказать обед или ужин в номер
+                    p Возможность заказать обед или ужин в номер
+                    p Возможность заказать обед или ужин в номер
+                    p Возможность заказать обед или ужин в номер
+            .pay
+                h4 Мы принимаем следующие карты
+                img(src="~/static/png/pay.png")
+
         SecondFooter(:contacts="contacts")
 </template>
 
@@ -74,12 +92,21 @@
     import ResidenceHeader from '~/components/headers/ResidenceHeader'
     import SecondFooter from '~/components/footers/SecondFooter'
     import BookingForm from '~/components/BookingForm'
-    import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
+    import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
     import 'hooper/dist/hooper.css'
 
     export default {
-        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ItemHotel },
-        data () {
+        components: {
+            ResidenceHeader,
+            SecondFooter,
+            Hooper,
+            Slide,
+            HooperNavigation,
+            HooperPagination,
+            BookingForm,
+            ItemHotel
+        },
+        data() {
             return {
                 hooperSettings: {
                     wheelControl: false,
@@ -117,7 +144,7 @@
                         1000: {
                             centerMode: false,
                             itemsToShow: 3
-                        },
+                        }
                     }
                 },
                 contacts: {},
@@ -125,7 +152,7 @@
                 about_text_additional: []
             }
         },
-        async asyncData({params, app}) {
+        async asyncData({ params, app }) {
             const about_result = await app.$api('get', '/about')
 
             return {
@@ -136,10 +163,10 @@
             let contacts = this.about_page.contacts
             let info = this.about_page.residence_info
 
-            this.contacts = contacts.length > 0 ? contacts[0]: {}
-            this.about_text = info.length > 0 ? info[0].text: {}
-            this.about_text_additional = info.length > 0 ? info[0].additional: []
-        },
+            this.contacts = contacts.length > 0 ? contacts[0] : {}
+            this.about_text = info.length > 0 ? info[0].text : {}
+            this.about_text_additional = info.length > 0 ? info[0].additional : []
+        }
     }
 </script>
 

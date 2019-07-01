@@ -8,9 +8,9 @@
                         NLink(:to="this.$path('/karaoi')").oasisKaraOi
                 .center
                     NLink(to="/") Главная
-                    NLink(to="/") О нас
-                    NLink(to="/") Номера
-                    NLink(to="/") Контакты
+                    a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") О нас
+                    a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") Номера
+                    a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") Контакты
                 .rightSide
                     .phone
                         a(:href="`tel:${contacts.karaoi_main_phone}`") {{ contacts.karaoi_main_phone }}

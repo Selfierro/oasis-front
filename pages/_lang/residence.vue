@@ -9,7 +9,7 @@
                         img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
-        .aboutUs
+        .aboutUs#about
             .container
                 .wrapper
                     h2 О НАС
@@ -25,7 +25,7 @@
                 p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
                 .wrapper
                 BookingForm(:rooms_choices="about_page.residence_rooms")
-        .hotel
+        .hotel#num
             h2 номера
             .hotelGrid(v-for="(item, index) in about_page.residence_rooms" :key="`room-${index}`" :index="index")
                 .ItemHotel
@@ -84,7 +84,7 @@
                 h4 Мы принимаем следующие карты
                 img(src="~/static/png/pay.png")
 
-        SecondFooter(:contacts="contacts")
+        SecondFooter(:contacts="contacts" id="contact")
 </template>
 
 <script>

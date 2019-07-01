@@ -74,6 +74,10 @@ export default {
         {
             src: '~/plugins/i18n.js',
             ssr: true
+        },
+        {
+            src: '~/plugins/vue-smooth-scroll.js',
+            ssr: false
         }
     ],
 

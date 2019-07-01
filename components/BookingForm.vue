@@ -3,7 +3,7 @@
         .flexGrid
             .flexItem
                 div
-                    Datetime(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="'required'",
+                    input(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="'required'",
                             format="yyyy-MM-dd" :phrases="dt_phrases")
                     span(v-for="e in errors.collect('coming_date')") {{ e }}
                 div
@@ -20,7 +20,7 @@
                     span(v-for="e in errors.collect('children_quantity')") {{ e }}
             .flexItem
                 div
-                    Datetime(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="'required'",
+                    input(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="'required'",
                              format="yyyy-MM-dd" :phrases="dt_phrases")
                     span(v-for="e in errors.collect('leaving_date')") {{ e }}
                 div
@@ -39,13 +39,13 @@
 </template>
 
 <script>
-  import { Datetime } from 'vue-datetime';
-  import 'vue-datetime/dist/vue-datetime.css'
+  // import { Datetime } from 'vue-datetime';
+  // import 'vue-datetime/dist/vue-datetime.css'
 
   export default {
     name: 'BookingForm',
     components: {
-        Datetime
+        // Datetime
     },
     props: {
         rooms_choices: {

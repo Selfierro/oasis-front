@@ -39,7 +39,7 @@
                     .flexItem(v-for="(item, index) in index_page.info", :key="`info-${index}`")
                         div(:style="`background-image: url(${item.icon})`")
                             h3 {{ item.title }}
-                            p {{ item.text }}
+                            p(v-html="item.text")
         .reviews
             .container
                 h2 отзывы

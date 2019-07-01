@@ -26,7 +26,7 @@
                         h2 новости и мероприятия
                         h3 {{ item.title }}
                         p {{ item.short_description }}
-                        NLink(to="/") ПОДРОБНЕЕ
+                        NLink(:to="$path(`/news/${item.id}`)") ПОДРОБНЕЕ
 
             hooper(ref='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider")
                 slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`")

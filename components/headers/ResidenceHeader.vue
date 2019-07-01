@@ -14,8 +14,8 @@
                     NLink(:to="this.$path('/restaurant')") Ресторан
                     a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") Контакты
                 .rightSide
-                    .mail
-                        a(:href="`mailto:${contacts.regency_common_email}`") {{ contacts.regency_common_email }}
+                    .phone
+                        a(:href="`tel:${contacts.regency_main_phone}`") {{ contacts.regency_main_phone }}
                     .social
                         a(:href="contacts.regency_instagram").instagram
                         a(:href="contacts.regency_facebook").facebook

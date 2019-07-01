@@ -16,7 +16,7 @@
                     p(v-html="about_text")
                 .flexContainer
                     .flexGrid
-                        .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index")
+                        .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index" v-if="item.position === 'top'")
                             h3 {{ item.title }}
                             p(v-html="item.text")
         .reservation
@@ -45,11 +45,11 @@
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
                                 img(:src="slide.image")
                     .rightSide
-                        label() забронировать
+                        label(@click="bookRoom(item.id)") забронировать
                         p(v-html="item.description")
                         h6 {{ item.additional_text }}
 
-            .hotelGrid(v-for="(item, index) in about_page.residence_additional_services" :key="`room-${index}`" :index="index")
+            .hotelGrid(v-for="(item, index) in about_page.residence_additional_services" :key="`room-as-${index}`" :index="index")
                 .ItemHotel
                     .leftSide
                         .wrapperShadow
@@ -68,18 +68,9 @@
                 hooper-pagination(slot='hooper-addons')
         .textBlock
             .grid
-                .text
-                    h3 В стоимость номера входит:
-                    p Трансфер
-                    p Трансфер
-                    p Трансфер
-                    p Трансфер
-                .text
-                    h3 Так же к Вашим услугам в «OASIS Residence»:
-                    p Возможность заказать обед или ужин в номер
-                    p Возможность заказать обед или ужин в номер
-                    p Возможность заказать обед или ужин в номер
-                    p Возможность заказать обед или ужин в номер
+                .text(v-for="(item, index) in about_text_additional" :key="`about-additional-bottom-${index}`" :index="index" v-if="item.position === 'bottom'")
+                    h3 {{ item.title }}
+                    p(v-html="item.text")
             .pay
                 h4 Мы принимаем следующие карты
                 img(src="~/static/png/pay.png")
@@ -166,6 +157,11 @@
             this.contacts = contacts.length > 0 ? contacts[0] : {}
             this.about_text = info.length > 0 ? info[0].text : {}
             this.about_text_additional = info.length > 0 ? info[0].additional : []
+        },
+        methods: {
+            bookRoom(id) {
+                this.$nuxt.$emit('ROOM_CHOSEN', id)
+            }
         }
     }
 </script>

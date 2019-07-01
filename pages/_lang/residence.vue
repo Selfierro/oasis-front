@@ -70,7 +70,7 @@
             .grid
                 .text(v-for="(item, index) in about_text_additional" :key="`about-additional-bottom-${index}`" :index="index" v-if="item.position === 'bottom'")
                     h3 {{ item.title }}
-                    p(v-html="item.description")
+                    p(v-html="item.text")
             .pay
                 h4 Мы принимаем следующие карты
                 img(src="~/static/png/pay.png")

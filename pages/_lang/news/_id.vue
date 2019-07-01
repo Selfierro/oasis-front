@@ -1,29 +1,30 @@
 <template lang="pug">
     div
-        MainHeader
+        MainHeader(:contacts="contacts")
         .newsDetail
             h2 новости и мероприятия
             .slider
 
                 hooper(:settings="hooperSettings0")
-                    slide(v-for="(slide, index) in 5" :key="index")
+                    slide(v-for="(slide, index) in news_page.gallery" :key="`gallery-${index}`", :index="index")
                         div.item
-                            img(src="~/static/jpg/slide2.jpg")
+                            img(:src="slide.image")
                     hooper-navigation(slot='hooper-addons')
             .text
-                h1 What is Lorem Ipsum?
-                .date Март 03 2019
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ducimus, earum? Ab iste neque obcaecati omnis ullam vel voluptate voluptates?
+                h1 {{ news_page.title }}
+                .date {{ news_page.date }}
+                p(v-html="news_page.description")
             .carousel
                 hooper(:settings="hooperSettings4")
-                    slide(v-for="item in 7" :key="index")
-                        img(src="~/static/jpg/nomer.jpg")
+                    slide(v-for="(item, index) in news_page.other_news" :key="`other-news-${index}`", :index="index")
+                        img(:src="item.image")
                         .desc
-                            h3 Тема мероприятия
-                            .date Март 03 2019
+                            NLink(:to="$path(`/news/${item.id}`)")
+                                h3 {{ item.title }}
+                            .date {{ item.date }}
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')
-        MainFooter
+        MainFooter(:contacts="contacts")
 </template>
 
 <script>
@@ -78,9 +79,22 @@
                             itemsToShow: 3
                         },
                     }
-                }
+                },
+                contacts: {},
             }
-        }
+        },
+        async asyncData({params, app}) {
+            const news_result = await app.$api('get', `news/${params.id}`)
+
+            return {
+                news_page: news_result['response']
+            }
+        },
+        mounted() {
+            let contacts = this.news_page.contacts
+
+            this.contacts = contacts.length > 0 ? contacts[0]: {}
+        },
     }
 
 </script>

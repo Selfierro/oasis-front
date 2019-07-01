@@ -4,7 +4,7 @@
         .slider
 
             hooper(:settings="hooperSettings")
-                slide(v-for="(slide, index) in conf_page.top_residence_slides" :key="`conference-top=${index}`", :index="index")
+                slide(v-for="(slide, index) in conf_page.top_residence_slides" :key="`conference-top-${index}`", :index="index")
                     div.item
                         img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
@@ -21,7 +21,7 @@
                             p(v-html="item.text")
         .carousel
             hooper(:settings="hooperSettings4")
-                slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom=${index}`", :index="index")
+                slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom-${index}`", :index="index")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')

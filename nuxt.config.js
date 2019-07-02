@@ -78,10 +78,6 @@ export default {
         {
             src: '~/plugins/vue-smooth-scroll.js',
             ssr: false
-        },
-        {
-            src: '~/plugins/vue-datepicker.js',
-            ssr: false
         }
     ],
 

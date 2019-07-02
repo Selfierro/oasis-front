@@ -3,8 +3,8 @@
         .flexGrid
             .flexItem
                 div
-                    datepicker(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="required",
-                            format="yyyy-MM-dd" :language="getLang()")
+                    datetime(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="required",
+                            format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('coming_date')") {{ e }}
                 div
                     input(placeholder="Ваше имя" type="text" v-model="full_name" required="'required'")
@@ -20,8 +20,8 @@
                     span(v-for="e in errors.collect('children_quantity')") {{ e }}
             .flexItem
                 div
-                    datepicker(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="required",
-                             format="yyyy-MM-dd" :language="getLang()")
+                    datetime(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="required",
+                             format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('leaving_date')") {{ e }}
                 div
                     input(placeholder="Электронная почта" type="email" v-model="email" required="'required'")
@@ -40,12 +40,13 @@
 
 <script>
 
-  import {en, ru} from 'vuejs-datepicker/dist/locale'
+  import { Datetime } from 'vue-datetime'
+  import 'vue-datetime/dist/vue-datetime.css'
 
   export default {
     name: 'BookingForm',
     components: {
-
+        Datetime
     },
     props: {
         rooms_choices: {
@@ -65,8 +66,10 @@
             leaving_date: '',
             email: '',
             rooms: [],
-            ru: ru,
-            en: en
+            phrases: {
+                ok: 'ОК',
+                cancel: 'Отмена',
+            }
         }
     },
     methods: {
@@ -92,9 +95,6 @@
         },
         getImage(gallery) {
             return gallery.length > 0 ? gallery[0].image : null
-        },
-        getLang() {
-            return this.$store.getters['getLocale'] === 'ru' ? this.ru : this.en
         }
     },
     mounted() {

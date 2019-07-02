@@ -45,5 +45,6 @@
         "book": "book now",
         "choose_rooms": "select a number (you can choose several)"
     },
-    "loading_site": "Loading"
+    "loading_site": "Loading",
+    "cancel": "Cancel"
 }

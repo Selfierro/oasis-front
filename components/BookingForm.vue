@@ -43,6 +43,8 @@
   import { Datetime } from 'vue-datetime'
   import 'vue-datetime/dist/vue-datetime.css'
 
+  import { Settings } from 'luxon'
+
   export default {
     name: 'BookingForm',
     components: {
@@ -68,7 +70,7 @@
             rooms: [],
             phrases: {
                 ok: 'ОК',
-                cancel: 'Отмена',
+                cancel: this.$t('cancel'),
             }
         }
     },
@@ -98,6 +100,8 @@
         }
     },
     mounted() {
+        Settings.defaultLocale = this.$store.getters['getLocale']
+
         this.$nuxt.$on('ROOM_CHOSEN', (id) => {
             this.rooms.push(id)
         })

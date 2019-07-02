@@ -26,7 +26,7 @@
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
-        SecondFooter(:contacts="contacts")
+        SecondFooter(:contacts="contacts" id="contact")
 </template>
 
 <script>

@@ -2,7 +2,7 @@
     div.preloader
         div
             img(src="~/static/svg/oasis.svg")
-            p Загружаем сайт
+            p {{ $t('loading_site') }}
 </template>
 
 <script>

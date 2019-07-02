@@ -3,31 +3,31 @@
         .flexGrid
             .flexItem
                 div
-                    datetime(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="required",
+                    datetime(:placeholder="$t('booking_form.coming_date')" type="text" v-model="coming_date" required="required",
                             format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('coming_date')") {{ e }}
                 div
-                    input(placeholder="Ваше имя" type="text" v-model="full_name" required="'required'")
+                    input(:placeholder="$t('booking_form.full_name')" type="text" v-model="full_name" required="'required'")
                     span(v-for="e in errors.collect('full_name')") {{ e }}
                 div
-                    input(placeholder="Номер телефона" type="text" v-model="phone" required="'required'")
+                    input(:placeholder="$t('booking_form.phone')" type="text" v-model="phone" required="'required'")
                     span(v-for="e in errors.collect('phone')") {{ e }}
                 div
-                    input(placeholder="Гостей" type="number" v-model="adult_quantity" required="'required'")
+                    input(:placeholder="$t('booking_form.adult_quantity')" type="number" v-model="adult_quantity" required="'required'")
                     span(v-for="e in errors.collect('adult_quantity')") {{ e }}
                 div
-                    input(placeholder="Детей" type="number" v-model="children_quantity" required="'required'")
+                    input(:placeholder="$t('booking_form.children_quantity')" type="number" v-model="children_quantity" required="'required'")
                     span(v-for="e in errors.collect('children_quantity')") {{ e }}
             .flexItem
                 div
-                    datetime(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="required",
+                    datetime(:placeholder="$t('booking_form.leaving_date')" type="text" v-model="leaving_date" required="required",
                              format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('leaving_date')") {{ e }}
                 div
-                    input(placeholder="Электронная почта" type="email" v-model="email" required="'required'")
+                    input(:placeholder="$t('booking_form.email')" type="email" v-model="email" required="'required'")
                     span(v-for="e in errors.collect('email')") {{ e }}
                 div
-                    .nameForm Выберите номер (можно несколько)
+                    .nameForm {{ $t('booking_form.choose_rooms') }}
                     .flexGridInner
                         .flexItem(v-for="item in rooms_choices")
                             label
@@ -35,7 +35,7 @@
                                 span.indicator
                                 img(:src="getImage(item.gallery)")
                                 | {{ item.title }}
-        button(type="submit").send забронировать
+        button(type="submit").send {{ $t('booking_form.book') }}
 </template>
 
 <script>

@@ -7,12 +7,12 @@
                         NLink(:to="this.$path('/residence')").oasisResidence
                         NLink(:to="this.$path('/karaoi')").oasisKaraOi
                 .center
-                    NLink(to="/") Главная
-                    a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") О нас
-                    a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") Номера
-                    NLink(:to="this.$path('/confhall')") Конференц зал
-                    NLink(:to="this.$path('/restaurant')") Ресторан
-                    a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") Контакты
+                    NLink(to="/") {{ $t('header.main')  }}
+                    a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.about')  }}
+                    a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") {{ $t('header.rooms')  }}
+                    NLink(:to="this.$path('/confhall')") {{ $t('header.confhall')  }}
+                    NLink(:to="this.$path('/restaurant')") {{ $t('header.restaurant')  }}
+                    a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.contacts')  }}
                 .rightSide
                     .phone
                         a(:href="`tel:${contacts.regency_main_phone}`") {{ contacts.regency_main_phone }}
@@ -21,15 +21,15 @@
                         a(:href="contacts.regency_facebook").facebook
                     LS
                 .mobileBurger
-                    span(@click="myFilter") Меню
+                    span(@click="myFilter") {{ $t('header.menu')  }}
                     .dropdown(:class="{active: isActive}")
                         .link
-                            NLink(to="/") Главная
-                            a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") О нас
-                            a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") Номера
-                            NLink(:to="this.$path('/confhall')") Конференц зал
-                            NLink(:to="this.$path('/restaurant')") Ресторан
-                            a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") Контакты
+                            NLink(to="/") {{ $t('header.main')  }}
+                            a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.about')  }}
+                            a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") {{ $t('header.rooms')  }}
+                            NLink(:to="this.$path('/confhall')") {{ $t('header.confhall')  }}
+                            NLink(:to="this.$path('/restaurant')") {{ $t('header.restaurant')  }}
+                            a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.contacts')  }}
                         LS
                         .social
                             a(:href="contacts.regency_instagram").instagram

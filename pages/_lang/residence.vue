@@ -12,7 +12,7 @@
         .aboutUs#about
             .container
                 .wrapper
-                    h2 О НАС
+                    h2 {{ $t('about_us') }}
                     p(v-html="about_text")
                 .flexContainer
                     .flexGrid
@@ -21,12 +21,12 @@
                             p(v-html="item.text")
         .reservation
             .container
-                h1 БРОНИРОВАНИЕ НА САЙТЕ
-                p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
+                h1 {{ $t('index.booking') }}
+                p {{ $t('index.booking_help_text') }}
                 .wrapper
                 BookingForm(:rooms_choices="about_page.residence_rooms")
         .hotel#num
-            h2 номера
+            h2 {{ $t('rooms') }}
             .hotelGrid(v-for="(item, index) in about_page.residence_rooms" :key="`room-${index}`" :index="index")
                 .ItemHotel
                     .leftSide
@@ -40,12 +40,12 @@
                                     .rooms {{ item.title }}
                                     .peoples {{ item.subtitle }}
                                 div.end
-                                    .prices {{ item.price }} сом
+                                    .prices {{ item.price }} {{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
                                 img(:src="slide.image")
                     .rightSide
-                        label(@click="bookRoom(item.id)") забронировать
+                        label(@click="bookRoom(item.id)") {{ $t('book') }}
                         p(v-html="item.description")
                         h6 {{ item.additional_text }}
 
@@ -72,14 +72,13 @@
                     h3 {{ item.title }}
                     p(v-html="item.text")
             .pay
-                h4 Мы принимаем следующие карты
+                h4 {{ $t('accept_cards') }}
                 img(src="~/static/png/pay.png")
 
         SecondFooter(:contacts="contacts" id="contact")
 </template>
 
 <script>
-    import ItemHotel from '~/components/ItemHotel'
     import ResidenceHeader from '~/components/headers/ResidenceHeader'
     import SecondFooter from '~/components/footers/SecondFooter'
     import BookingForm from '~/components/BookingForm'
@@ -95,7 +94,6 @@
             HooperNavigation,
             HooperPagination,
             BookingForm,
-            ItemHotel
         },
         data() {
             return {

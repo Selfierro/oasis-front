@@ -22,18 +22,18 @@
 
         .reservation
             .container
-                h1 БРОНИРОВАНИЕ НА САЙТЕ
-                p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
+                h1 {{ $t('index.booking') }}
+                p {{ $t('index.booking_help_text') }}
                 .wrapper
                 BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
                 slide(v-for="(item, index) in index_page.news" :key="`news-${index}`")
                     div
-                        h2 новости и мероприятия
+                        h2 {{ $t('index.news_and_events') }}
                         h3 {{ item.title }}
                         p {{ item.short_description }}
-                        NLink(:to="$path(`/news/${item.id}`)") ПОДРОБНЕЕ
+                        NLink(:to="$path(`/news/${item.id}`)") {{ $t('index.more') }}
 
             hooper(ref='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider")
                 slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`")
@@ -41,7 +41,7 @@
                 hooper-navigation(slot='hooper-addons')
         .aboutOasis
             .container
-                h2 почему вы должны выбрать отель “ОASIS”
+                h2 {{ $t('index.why_choose_oasis') }}
                 .flexGrid
                     .flexItem(v-for="(item, index) in index_page.info", :key="`info-${index}`")
                         div(:style="`background-image: url(${item.icon})`")
@@ -49,7 +49,7 @@
                             p(v-html="item.text")
         .reviews
             .container
-                h2 отзывы
+                h2 {{ $t('index.feedbacks') }}
                 hooper(:settings="hooperSettings")
                     slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`")
                         div.item

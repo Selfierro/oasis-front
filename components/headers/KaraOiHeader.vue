@@ -7,10 +7,10 @@
                         NLink(:to="this.$path('/residence')").oasisResidence
                         NLink(:to="this.$path('/karaoi')").oasisKaraOi
                 .center
-                    NLink(to="/") Главная
-                    a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") О нас
-                    a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") Номера
-                    a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") Контакты
+                    NLink(to="/") {{ $t('header.main')  }}
+                    a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.about')  }}
+                    a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") {{ $t('header.rooms')  }}
+                    a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.contacts')  }}
                 .rightSide
                     .phone
                         a(:href="`tel:${contacts.karaoi_main_phone}`") {{ contacts.karaoi_main_phone }}
@@ -19,13 +19,13 @@
                         a(:href="contacts.karaoi_facebook").facebook
                     LS
                 .mobileBurger
-                    span(@click="myFilter") Меню
+                    span(@click="myFilter") {{ $t('header.menu')  }}
                     .dropdown(:class="{active: isActive}")
                         .link
-                            NLink(to="/") Главная
-                            a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") О нас
-                            a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") Номера
-                            a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") Контакты
+                            NLink(to="/") {{ $t('header.main')  }}
+                            a(href="#about" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.about')  }}
+                            a(href="#num" v-smooth-scroll="{ duration: 1000, offset: -100 }") {{ $t('header.rooms')  }}
+                            a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.contacts')  }}
                         LS
                         .social
                             a(:href="contacts.regency_instagram").instagram

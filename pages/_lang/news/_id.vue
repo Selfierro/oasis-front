@@ -2,7 +2,7 @@
     div
         MainHeader(:contacts="contacts")
         .newsDetail
-            h2 новости и мероприятия
+            h2 {{ $t('news.news_and_events') }}
             .slider
 
                 hooper(:settings="hooperSettings0")

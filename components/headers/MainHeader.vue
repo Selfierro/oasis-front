@@ -15,7 +15,7 @@
                         a(:href="contacts.regency_facebook").facebook
                     LS
                 .mobileBurger
-                    span(@click="myFilter") Меню
+                    span(@click="myFilter") {{ $t('header.menu')  }}
                     .dropdown(:class="{active: isActive}")
                         LS
                         .social

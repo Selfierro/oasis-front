@@ -1,3 +1,49 @@
 {
-
+    "news": {
+        "news_and_events": "новости и мероприятия"
+    },
+    "confhall": {
+        "conference_hall": "Конференц зал"
+    },
+    "index": {
+        "booking": "БРОНИРОВАНИЕ НА САЙТЕ",
+        "booking_help_text": "Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте",
+        "news_and_events": "новости и мероприятия",
+        "more": "ПОДРОБНЕЕ",
+        "why_choose_oasis": "почему вы должны выбрать отель “ОASIS”?",
+        "feedbacks": "отзывы"
+    },
+    "about_us": "О НАС",
+    "rooms": "номера",
+    "som": "сом",
+    "book": "забронировать",
+    "accept_cards": "Мы принимаем следующие карты",
+    "restaurant": "Ресторан",
+    "footer": {
+        "oasis_regency": "OASIS REGENCY",
+        "booking_department": "ОТДЕЛ БРОНИРОВАНИЯ",
+        "common_questions": "Общие вопросы/предложения",
+        "oasis_karaoi": "OASIS кара-ой"
+    },
+    "header": {
+        "main": "Главная",
+        "about": "О нас",
+        "rooms": "Номера",
+        "contacts": "Контакты",
+        "menu": "Меню",
+        "confhall": "Конференц зал",
+        "restaurant": "Ресторан"
+    },
+    "booking_form": {
+        "coming_date": "Выберите дату заезда",
+        "full_name": "Ваше имя",
+        "phone": "Номер телефона",
+        "adult_quantity": "Гостей",
+        "children_quantity": "Детей",
+        "leaving_date": "Выберите дату выезда",
+        "email": "Электронная почта",
+        "book": "забронировать",
+        "choose_rooms": "Выберите номер (можно несколько)"
+    },
+    "loading_site": "Загружаем сайт"
 }

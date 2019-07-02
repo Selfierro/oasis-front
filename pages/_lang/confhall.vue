@@ -12,7 +12,7 @@
         .aboutUs
             .container
                 .wrapper
-                    h2 Конференц зал
+                    h2 {{ $t('confhall.conference_hall') }}
                     p(v-html="about_text")
                 .flexContainer.hall
                     .flexGrid.hall
@@ -29,7 +29,6 @@
 </template>
 
 <script>
-    import ItemHotel from '~/components/ItemHotel'
     import ResidenceHeader from '~/components/headers/ResidenceHeader'
     import SecondFooter from '~/components/footers/SecondFooter'
     import BookingForm from '~/components/BookingForm'
@@ -37,7 +36,7 @@
     import 'hooper/dist/hooper.css'
 
     export default {
-        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ItemHotel },
+        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm },
         data () {
             return {
                 hooperSettings: {

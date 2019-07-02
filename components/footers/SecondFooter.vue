@@ -4,16 +4,16 @@
             .left
                 div
                     .margin
-                        h3 OASIS кара-ой
+                        h3 {{ $t('footer.oasis_karaoi')  }}
                         p {{ contacts.karaoi_address }}
                         p {{ contacts.karaoi_booking_phone }}
                         p {{ contacts.karaoi_booking_mobile_phone }}
                     .margin
-                        h3 ОТДЕЛ БРОНИРОВАНИЯ
+                        h3 {{ $t('footer.booking_department')  }}
                         p.
                             {{ contacts.karaoi_booking_email }}
                     .margin
-                        h3 Общие вопросы/предложения
+                        h3 {{ $t('footer.common_questions')  }}
                         p.
                             {{ contacts.karaoi_common_email }}
             .right

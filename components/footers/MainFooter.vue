@@ -4,28 +4,28 @@
             .mainFlexItem.leftSide
                 .flexGrid
                     .flexItem
-                        h4 OASIS REGENCY
+                        h4 {{ $t('footer.oasis_regency')  }}
                         p {{ contacts.regency_address }}
                         p {{ contacts.regency_booking_phone }}
                         p {{ contacts.regency_booking_mobile_phone }}
                     .flexItem
-                        h4 ОТДЕЛ БРОНИРОВАНИЯ
+                        h4 {{ $t('footer.booking_department')  }}
                         p {{ contacts.regency_booking_email }}
                     .flexItem
-                        h4 Общие вопросы/предложения
+                        h4 {{ $t('footer.common_questions')  }}
                         p {{ contacts.regency_common_email }}
             .mainFlexItem.rightSide
                 .flexGrid
                     .flexItem
-                        h4 OASIS кара-ой
+                        h4 {{ $t('footer.oasis_karaoi')  }}
                         p {{ contacts.karaoi_address }}
                         p {{ contacts.karaoi_booking_phone }}
                         p {{ contacts.karaoi_booking_mobile_phone }}
                     .flexItem
-                        h4 ОТДЕЛ БРОНИРОВАНИЯ
+                        h4 {{ $t('footer.booking_department')  }}
                         p {{ contacts.karaoi_booking_email }}
                     .flexItem
-                        h4 Общие вопросы/предложения
+                        h4 {{ $t('footer.common_questions')  }}
                         p {{ contacts.karaoi_common_email }}
 </template>
 

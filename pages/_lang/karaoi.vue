@@ -12,7 +12,7 @@
         .aboutUs#about
             .container
                 .wrapper
-                    h2 О НАС
+                    h2 {{ $t('about_us') }}
                     p(v-html="about_text")
                 .flexContainer
                     .flexGrid
@@ -26,7 +26,7 @@
                 .wrapper
                 BookingForm(:rooms_choices="about_page.karaoi_rooms")
         .hotel#num
-            h2 номера
+            h2 {{ $t('rooms') }}
             .hotelGrid(v-for="(item, index) in about_page.karaoi_rooms" :key="`room-${index}`" :index="index")
                 .ItemHotel
                     .leftSide
@@ -40,7 +40,7 @@
                                     .rooms {{ item.title }}
                                     .peoples {{ item.subtitle }}
                                 div.end
-                                    .prices {{ item.price }} сом
+                                    .prices {{ item.price }} {{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
                                 img(:src="slide.image")
@@ -70,7 +70,6 @@
 </template>
 
 <script>
-    import ItemHotel from '~/components/ItemHotel'
     import KaraOiHeader from '~/components/headers/KaraOiHeader'
     import SecondFooter from '~/components/footers/SecondFooter'
     import BookingForm from '~/components/BookingForm'
@@ -78,7 +77,7 @@
     import 'hooper/dist/hooper.css'
 
     export default {
-        components: { KaraOiHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ItemHotel },
+        components: { KaraOiHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm },
         data () {
             return {
                 hooperSettings: {

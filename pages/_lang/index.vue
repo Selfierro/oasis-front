@@ -9,8 +9,8 @@
                 .item.rightImage
                     img(src="~/static/svg/oasisKaraOi.svg").logo
                     img(src="~/static/png/rightBanner.png").hotelRight
-        .reservation
-            .container
+        //.reservation
+          .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ
                 p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
                 .wrapper
@@ -19,6 +19,13 @@
                         .btn(:class="!residence_book_active ? 'active': ''", @click="residence_book_active = !residence_book_active") кара-ой
                     BookingForm(v-show="residence_book_active", :rooms_choices="index_page.residence_rooms")
                     BookingForm(v-show="!residence_book_active", :rooms_choices="index_page.karaoi_rooms")
+
+        .reservation
+            .container
+                h1 БРОНИРОВАНИЕ НА САЙТЕ
+                p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте
+                .wrapper
+                BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
                 slide(v-for="(item, index) in index_page.news" :key="`news-${index}`")

@@ -3,8 +3,8 @@
         .flexGrid
             .flexItem
                 div
-                    input(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="'required'",
-                            format="yyyy-MM-dd" :phrases="dt_phrases")
+                    datetime(placeholder="Выберите дату заезда" type="text" v-model="coming_date" required="required",
+                            format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('coming_date')") {{ e }}
                 div
                     input(placeholder="Ваше имя" type="text" v-model="full_name" required="'required'")
@@ -20,8 +20,8 @@
                     span(v-for="e in errors.collect('children_quantity')") {{ e }}
             .flexItem
                 div
-                    input(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="'required'",
-                             format="yyyy-MM-dd" :phrases="dt_phrases")
+                    datetime(placeholder="Выберите дату выезда" type="text" v-model="leaving_date" required="required",
+                             format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('leaving_date')") {{ e }}
                 div
                     input(placeholder="Электронная почта" type="email" v-model="email" required="'required'")
@@ -39,10 +39,14 @@
 </template>
 
 <script>
+
+  import { Datetime } from 'vue-datetime'
+  import 'vue-datetime/dist/vue-datetime.css'
+
   export default {
     name: 'BookingForm',
     components: {
-
+        Datetime
     },
     props: {
         rooms_choices: {
@@ -62,9 +66,9 @@
             leaving_date: '',
             email: '',
             rooms: [],
-            dt_phrases: {
-                ok: 'OK',
-                cancel: 'Отмена'
+            phrases: {
+                ok: 'ОК',
+                cancel: 'Отмена',
             }
         }
     },

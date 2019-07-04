@@ -1,18 +1,20 @@
 import pkg from './package'
 
+const APP_TITLE = 'OASIS'
+
 export default {
     mode: 'universal',
-    app_title: 'OASIS',
+    app_title: APP_TITLE,
 
     /*
      ** Headers of the page
      */
     head: {
-        title: pkg.name,
+        title: APP_TITLE,
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', name: 'description', content: pkg.description }
+            // { hid: 'description', name: 'description', content: pkg.description }
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -120,5 +122,10 @@ export default {
 
     router: {
         middleware: 'i18n'
+    },
+
+    seo: {
+        name: APP_TITLE,
+        templateTitle: '%title% - %name%'
     },
 }

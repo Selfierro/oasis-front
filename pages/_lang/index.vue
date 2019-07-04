@@ -105,9 +105,24 @@
         },
         async asyncData({params, app}) {
             const index_result = await app.$api('get', '/index')
+            let index_page = index_result['response']
+
+            let locale = app.i18n._vm._data.locale
+            let messages = app.i18n._vm._data.messages
+
+            if (index_page.seo.length > 0) {
+                let seo = index_page.seo[0]
+
+                app.$buildSeoTags({
+                    'title': messages[locale].header.main,
+                    'desc': seo.index_description,
+                    'kw': seo.index_keywords,
+                    'image': ''
+                })
+            }
 
             return {
-                index_page: index_result['response']
+                index_page: index_page
             }
         },
         mounted() {

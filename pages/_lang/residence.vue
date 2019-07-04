@@ -86,6 +86,18 @@
     import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
     import 'hooper/dist/hooper.css'
 
+    let common = {
+        'scrollTo': (context) => {
+            let currentPath = context.$route.fullPath
+
+            if (currentPath.includes('about')) {
+                context.$nuxt.$emit('SCROLL_TO', 'about')
+            } else if (currentPath.includes('num')) {
+                context.$nuxt.$emit('SCROLL_TO', 'rooms')
+            }
+        }
+    }
+
     export default {
         components: {
             ResidenceHeader,
@@ -156,12 +168,15 @@
             this.contacts = contacts.length > 0 ? contacts[0] : {}
             this.about_text = info.length > 0 ? info[0].text : {}
             this.about_text_additional = info.length > 0 ? info[0].additional : []
+
+            common.scrollTo(this)
         },
         methods: {
             bookRoom(id) {
                 this.$nuxt.$emit('ROOM_CHOSEN', id)
             }
-        }
+        },
+        common: common
     }
 </script>
 

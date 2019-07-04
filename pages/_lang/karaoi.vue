@@ -40,7 +40,7 @@
                                     .rooms {{ item.title }}
                                     .peoples {{ item.subtitle }}
                                 div.end
-                                    .prices {{ item.price }}
+                                    .prices(:class="item.price === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     //{{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")

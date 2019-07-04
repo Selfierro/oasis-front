@@ -40,7 +40,7 @@
                                     .rooms {{ item.title }}
                                     .peoples {{ item.subtitle }}
                                 div.end
-                                    .prices {{ item.price }}
+                                    .prices(:class="item.price === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     // {{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
@@ -76,12 +76,12 @@
                 h4 {{ $t('accept_cards') }}
                 img(src="~/static/png/pay.png")
 
-        SecondFooter(:contacts="contacts" id="contact")
+        ThirdFooter(:contacts="contacts" id="contact")
 </template>
 
 <script>
     import ResidenceHeader from '~/components/headers/ResidenceHeader'
-    import SecondFooter from '~/components/footers/SecondFooter'
+    import ThirdFooter from '~/components/footers/ThirdFooter'
     import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
     import 'hooper/dist/hooper.css'
@@ -89,7 +89,7 @@
     export default {
         components: {
             ResidenceHeader,
-            SecondFooter,
+            ThirdFooter,
             Hooper,
             Slide,
             HooperNavigation,

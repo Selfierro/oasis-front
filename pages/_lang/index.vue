@@ -8,7 +8,6 @@
                         img(src="~/static/svg/oasisResidence.svg").logo
                     img(src="~/static/png/leftBanner.png").hotelLeft
 
-
                 .item.rightImage
                     NLink(:to="this.$path('/karaoi')")
                         img(src="~/static/svg/oasisKaraOi.svg").logo

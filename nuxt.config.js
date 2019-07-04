@@ -2,6 +2,7 @@ import pkg from './package'
 
 export default {
     mode: 'universal',
+    app_title: 'OASIS',
 
     /*
      ** Headers of the page

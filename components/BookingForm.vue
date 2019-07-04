@@ -3,28 +3,28 @@
         .flexGrid
             .flexItem
                 div
-                    datetime(:placeholder="$t('booking_form.coming_date')" type="text" v-model="coming_date" required="required",
+                    datetime(:placeholder="$t('booking_form.coming_date')" id="dataIn" type="text" v-model="coming_date" required="required",
                             format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('coming_date')") {{ e }}
                 div
-                    input(:placeholder="$t('booking_form.full_name')" type="text" v-model="full_name" required="'required'")
+                    input(:placeholder="$t('booking_form.full_name')" id="name" type="text" v-model="full_name" required="'required'")
                     span(v-for="e in errors.collect('full_name')") {{ e }}
                 div
-                    input(:placeholder="$t('booking_form.phone')" type="text" v-model="phone" required="'required'")
+                    input(:placeholder="$t('booking_form.phone')" id="phone" type="text" v-model="phone" required="'required'")
                     span(v-for="e in errors.collect('phone')") {{ e }}
                 div
-                    input(:placeholder="$t('booking_form.adult_quantity')" type="number" v-model="adult_quantity" required="'required'")
+                    input(:placeholder="$t('booking_form.adult_quantity')" id="geust" type="number" v-model="adult_quantity" required="'required'")
                     span(v-for="e in errors.collect('adult_quantity')") {{ e }}
                 div
-                    input(:placeholder="$t('booking_form.children_quantity')" type="number" v-model="children_quantity" required="'required'")
+                    input(:placeholder="$t('booking_form.children_quantity')" id="child" type="number" v-model="children_quantity" required="'required'")
                     span(v-for="e in errors.collect('children_quantity')") {{ e }}
             .flexItem
                 div
-                    datetime(:placeholder="$t('booking_form.leaving_date')" type="text" v-model="leaving_date" required="required",
+                    datetime(:placeholder="$t('booking_form.leaving_date')" id="dataOut" type="text" v-model="leaving_date" required="required",
                              format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('leaving_date')") {{ e }}
                 div
-                    input(:placeholder="$t('booking_form.email')" type="email" v-model="email" required="'required'")
+                    input(:placeholder="$t('booking_form.email')" id="email" type="email" v-model="email" required="'required'")
                     span(v-for="e in errors.collect('email')") {{ e }}
                 div
                     .nameForm {{ $t('booking_form.choose_rooms') }}

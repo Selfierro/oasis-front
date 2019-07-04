@@ -36,12 +36,14 @@
                                 img(:src="getImage(item.gallery)")
                                 | {{ item.title }}
         button(type="submit").send {{ $t('booking_form.book') }}
+        p(v-if="show_book_success") {{ book_success_msg }}
 </template>
 
 <script>
 
   import { Datetime } from 'vue-datetime'
   import 'vue-datetime/dist/vue-datetime.css'
+  import moment from 'moment'
 
   import { Settings } from 'luxon'
 
@@ -71,16 +73,20 @@
             phrases: {
                 ok: 'ОК',
                 cancel: this.$t('cancel'),
-            }
+            },
+            book_success_msg: '',
+            show_book_success: false
         }
     },
     methods: {
         async createBooking() {
+            this.show_book_success = false
+
             this.$validate(this, async () => {
                 let result = await this.$api('post', '/booking/create/', {
-                    leaving_date: this.leaving_date,
+                    leaving_date: moment(this.leaving_date).format('YYYY-MM-DD'),
                     adult_quantity: this.adult_quantity,
-                    coming_date: this.coming_date,
+                    coming_date: moment(this.coming_date).format('YYYY-MM-DD'),
                     children_quantity: this.children_quantity,
                     phone: this.phone,
                     rooms: this.rooms,
@@ -89,7 +95,12 @@
                 })
 
                 if (result['success']) {
-
+                    this.book_success_msg = this.$t('book_success_msg').replace('%s', this.full_name)
+                    this.$cleanForm(this, [
+                        'leaving_date', 'adult_quantity', 'coming_date', 'children_quantity',
+                        'phone', 'rooms', 'full_name', 'email'
+                    ])
+                    this.show_book_success = true
                 } else {
                     this.$pushErrors(this, result['response'].data)
                 }

@@ -46,5 +46,6 @@
         "choose_rooms": "select a number (you can choose several)"
     },
     "loading_site": "Loading",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "book_success_msg": "Dear %s, we thank you for choosing our hotel! Reservation department \"Oasis Residence\" will contact you as soon as possible"
 }

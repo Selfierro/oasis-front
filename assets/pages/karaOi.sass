@@ -272,11 +272,14 @@
                     color: #000000
                     font-weight: bold
                     background-repeat: no-repeat
-                    background-position: right 10px
+                    background-position: right center
                     padding-right: 20px
                     -webkit-background-size: 15px
                     background-size: 15px
-                    background-image: url(../static/svg/som.svg)
+                    &.som
+                        background-image: url(../static/svg/som.svg)
+                    &.dollar
+                        background-image: url(../static/svg/dollar.svg)
                     @media (max-width: 1450px)
                         font-size: 17px
     .rightSide

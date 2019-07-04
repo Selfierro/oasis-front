@@ -6,11 +6,12 @@
                 .item.leftImage
                     NLink(:to="this.$path('/residence')")
                         img(src="~/static/svg/oasisResidence.svg").logo
-                        img(src="~/static/png/leftBanner.png").hotelLeft
+                    img(src="~/static/png/leftBanner.png").hotelLeft
+
                 .item.rightImage
                     NLink(:to="this.$path('/karaoi')")
                         img(src="~/static/svg/oasisKaraOi.svg").logo
-                        img(src="~/static/png/rightBanner.png").hotelRight
+                    img(src="~/static/png/rightBanner.png").hotelRight
         //.reservation
           .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ

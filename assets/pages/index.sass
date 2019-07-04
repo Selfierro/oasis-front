@@ -20,6 +20,13 @@ html.loaded
                 height: 100%
 .bannerChoiceHotel
     overflow: hidden
+    a
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
     .flex
         display: flex
         position: relative
@@ -234,7 +241,7 @@ html.loaded
         background-position: right center
         @media (max-width: 1450px)
             font-size: 14px
-        &#dataIn
+        &.vdatetime-input
             background-image: url(../static/svg/calendar.svg)
         &#name
             background-image: url(../static/svg/name.svg)

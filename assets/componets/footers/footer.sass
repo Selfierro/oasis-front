@@ -32,11 +32,16 @@
 
                 h4
                     color: #8EA7D0
+                    height: 36px
                     @media (max-width: 1450px)
                         font-size: 13px
+                        height: 36px
+                    @media (max-width: 640px)
+                        height: auto
                 p
                     @media (max-width: 1450px)
                         font-size: 11px
+                        padding-right: 20px
             &.leftSide
                 padding-right: 40px
                 border-right: 1px solid $white
@@ -48,11 +53,16 @@
                     border-bottom: 1px solid $white
                 h4
                     color: #F4AE61
+                    height: 36px
                     @media (max-width: 1450px)
                         font-size: 13px
+                        height: 36px
+                    @media (max-width: 640px)
+                        height: auto
                 p
                     @media (max-width: 1450px)
                         font-size: 11px
+                        padding-right: 20px
             .flexGrid
                 display: flex
                 flex-wrap: wrap
@@ -61,6 +71,7 @@
                     width: 33.3%
                     @media (max-width: 960px)
                         width: 50%
+                        margin-bottom: 30px
                     @media (max-width: 640px)
                         width: 100%
 .secondFooter
@@ -115,3 +126,14 @@
                 height: 300px
             iframe
                 display: block
+.sunrise
+    padding: 20px 0
+    text-align: center
+    background-color: #222
+    a
+        color: $white
+        font-size: 18px
+        display: inline-block
+        text-decoration: none
+        &:hover
+            color: #F4AE61

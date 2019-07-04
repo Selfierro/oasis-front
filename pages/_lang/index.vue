@@ -4,11 +4,13 @@
         .bannerChoiceHotel.actions
             .flex.active
                 .item.leftImage
-                    img(src="~/static/svg/oasisResidence.svg").logo
-                    img(src="~/static/png/leftBanner.png").hotelLeft
+                    NLink(:to="this.$path('/residence')")
+                        img(src="~/static/svg/oasisResidence.svg").logo
+                        img(src="~/static/png/leftBanner.png").hotelLeft
                 .item.rightImage
-                    img(src="~/static/svg/oasisKaraOi.svg").logo
-                    img(src="~/static/png/rightBanner.png").hotelRight
+                    NLink(:to="this.$path('/karaoi')")
+                        img(src="~/static/svg/oasisKaraOi.svg").logo
+                        img(src="~/static/png/rightBanner.png").hotelRight
         //.reservation
           .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ

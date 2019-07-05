@@ -6,7 +6,7 @@
                     div
                         .margin
                             h3 {{ $t('footer.oasis_regency')  }}
-                            p {{ contacts.regency_address }}
+                            p(v-html="contacts.regency_address")
                             p {{ contacts.regency_booking_phone }}
                             p {{ contacts.regency_booking_mobile_phone }}
                         .margin

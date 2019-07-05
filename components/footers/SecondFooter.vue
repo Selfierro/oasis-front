@@ -6,7 +6,7 @@
                     div
                         .margin
                             h3 {{ $t('footer.oasis_karaoi')  }}
-                            p {{ contacts.karaoi_address }}
+                            p(v-html="contacts.karaoi_address")
                             p {{ contacts.karaoi_booking_phone }}
                             p {{ contacts.karaoi_booking_mobile_phone }}
                         .margin

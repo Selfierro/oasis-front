@@ -43,7 +43,8 @@
         "leaving_date": "Check-out date",
         "email": "EMail",
         "book": "book now",
-        "choose_rooms": "select a number (you can choose several)"
+        "choose_rooms": "select a number (you can choose several)",
+        "no_room_error": "You have to choose at least one room"
     },
     "loading_site": "Loading",
     "cancel": "Cancel",

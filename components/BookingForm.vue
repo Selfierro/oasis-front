@@ -37,6 +37,7 @@
                                 | {{ item.title }}
         button(type="submit").send {{ $t('booking_form.book') }}
         p(v-if="show_book_success") {{ book_success_msg }}
+        p(v-for="msg in this.error_messages") {{ msg }}
 </template>
 
 <script>
@@ -75,34 +76,40 @@
                 cancel: this.$t('cancel'),
             },
             book_success_msg: '',
-            show_book_success: false
+            show_book_success: false,
+            error_messages: []
         }
     },
     methods: {
         async createBooking() {
+            this.error_messages = []
             this.show_book_success = false
 
             this.$validate(this, async () => {
-                let result = await this.$api('post', '/booking/create/', {
-                    leaving_date: moment(this.leaving_date).format('YYYY-MM-DD'),
-                    adult_quantity: this.adult_quantity,
-                    coming_date: moment(this.coming_date).format('YYYY-MM-DD'),
-                    children_quantity: this.children_quantity,
-                    phone: this.phone,
-                    rooms: this.rooms,
-                    full_name: this.full_name,
-                    email: this.email,
-                })
+                if (this.rooms.length > 0) {
+                    let result = await this.$api('post', '/booking/create/', {
+                        leaving_date: moment(this.leaving_date).format('YYYY-MM-DD'),
+                        adult_quantity: this.adult_quantity,
+                        coming_date: moment(this.coming_date).format('YYYY-MM-DD'),
+                        children_quantity: this.children_quantity,
+                        phone: this.phone,
+                        rooms: this.rooms,
+                        full_name: this.full_name,
+                        email: this.email,
+                    })
 
-                if (result['success']) {
-                    this.book_success_msg = this.$t('book_success_msg').replace('%s', this.full_name)
-                    this.$cleanForm(this, [
-                        'leaving_date', 'adult_quantity', 'coming_date', 'children_quantity',
-                        'phone', 'rooms', 'full_name', 'email'
-                    ])
-                    this.show_book_success = true
+                    if (result['success']) {
+                        this.book_success_msg = this.$t('book_success_msg').replace('%s', this.full_name)
+                        this.$cleanForm(this, [
+                            'leaving_date', 'adult_quantity', 'coming_date', 'children_quantity',
+                            'phone', 'rooms', 'full_name', 'email'
+                        ])
+                        this.show_book_success = true
+                    } else {
+                        this.$pushErrors(this, result['response'].data)
+                    }
                 } else {
-                    this.$pushErrors(this, result['response'].data)
+                    this.error_messages.push(this.$t('booking_form.no_room_error'))
                 }
             })
         },

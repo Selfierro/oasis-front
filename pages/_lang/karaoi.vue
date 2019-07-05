@@ -3,7 +3,7 @@
         KaraOiHeader(:contacts="contacts")
         .slider
 
-            hooper(:settings="hooperSettings")
+            hooper(:settings="hooperSettings"  :autoPlay="true")
                 slide(v-for="(slide, index) in about_page.top_karaoi_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
                         img(:src="slide.image")

@@ -35,6 +35,7 @@
                                 span.indicator
                                 img(:src="getImage(item.gallery)")
                                 | {{ item.title }}
+                                | {{ item.subtitle }}
         button(type="submit").send {{ $t('booking_form.book') }}
         p(v-if="show_book_success") {{ book_success_msg }}
         p(v-for="msg in this.error_messages") {{ msg }}

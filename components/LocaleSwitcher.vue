@@ -1,6 +1,6 @@
 <template lang="pug">
     .lang
-        NLink(:to="switchLocaleInPath('ru')", :class="$store.getters['getLocale'] === 'ru' ? 'active' : ''") RU
+        NLink(:to="switchLocaleInPath('ru')", :class="$store.getters['getLocale'] === 'ru' ? 'active' : ''") РУС
         NLink(:to="switchLocaleInPath('en')", :class="$store.getters['getLocale'] === 'en' ? 'active' : ''") ENG
 </template>
 

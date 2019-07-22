@@ -3,7 +3,7 @@
         KaraOiHeader(:contacts="contacts")
         .slider
 
-            hooper(:settings="hooperSettings")
+            hooper(:settings="hooperSettings"  :autoPlay="true")
                 slide(v-for="(slide, index) in about_page.top_karaoi_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
                         img(:src="slide.image")
@@ -40,7 +40,7 @@
                                     .rooms {{ item.title }}
                                     .peoples {{ item.subtitle }}
                                 div.end
-                                    .prices(:class="item.price === 'som' ? 'som' : 'dollar'") {{ item.price }}
+                                    .prices(:class="item.currency === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     //{{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")

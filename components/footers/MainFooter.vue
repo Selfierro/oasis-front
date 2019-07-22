@@ -6,7 +6,7 @@
                     .flexGrid
                         .flexItem
                             h4 {{ $t('footer.oasis_regency')  }}
-                            p {{ contacts.regency_address }}
+                            p(v-html="contacts.regency_address")
                             p {{ contacts.regency_booking_phone }}
                             p {{ contacts.regency_booking_mobile_phone }}
                         .flexItem
@@ -19,7 +19,7 @@
                     .flexGrid
                         .flexItem
                             h4 {{ $t('footer.oasis_karaoi')  }}
-                            p {{ contacts.karaoi_address }}
+                            p(v-html="contacts.karaoi_address")
                             p {{ contacts.karaoi_booking_phone }}
                             p {{ contacts.karaoi_booking_mobile_phone }}
                         .flexItem

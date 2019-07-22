@@ -7,7 +7,7 @@
     },
     "index": {
         "booking": "Book now",
-        "booking_help_text": "Вы можете выбрать номер и все доступные опции, забронировать его прямо на сайте",
+        "booking_help_text": "You can choose a room and all available options, book it directly on the site.",
         "news_and_events": "NEWS & EVENTS",
         "more": "READ MORE",
         "why_choose_oasis": "WHY YOU SHOULD CHOOSE THE HOTEL “OASIS”?",
@@ -23,7 +23,8 @@
         "oasis_regency": "OASIS REGENCY",
         "booking_department": "RESERVATIONS DEPARTMENT",
         "common_questions": "GENERAL QUESTIONS/SUGGESTIONS",
-        "oasis_karaoi": "OASIS Kara Oi"
+        "oasis_karaoi": "OASIS Kara Oi",
+        "restaurant": "Restaurant"
     },
     "header": {
         "main": "Home",
@@ -43,8 +44,10 @@
         "leaving_date": "Check-out date",
         "email": "EMail",
         "book": "book now",
-        "choose_rooms": "select a number (you can choose several)"
+        "choose_rooms": "select a number (you can choose several)",
+        "no_room_error": "You have to choose at least one room"
     },
     "loading_site": "Loading",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "book_success_msg": "Dear %s, we thank you for choosing our hotel! Reservation department \"Oasis Residence\" will contact you as soon as possible"
 }

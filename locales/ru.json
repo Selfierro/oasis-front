@@ -23,7 +23,8 @@
         "oasis_regency": "OASIS RESIDENCE",
         "booking_department": "ОТДЕЛ БРОНИРОВАНИЯ",
         "common_questions": "Общие вопросы/предложения",
-        "oasis_karaoi": "OASIS кара-ой"
+        "oasis_karaoi": "OASIS кара-ой",
+        "restaurant": "Ресторан"
     },
     "header": {
         "main": "Главная",
@@ -38,13 +39,15 @@
         "coming_date": "Выберите дату заезда",
         "full_name": "Ваше имя",
         "phone": "Номер телефона",
-        "adult_quantity": "Гостей",
-        "children_quantity": "Детей",
+        "adult_quantity": "Гости",
+        "children_quantity": "Дети",
         "leaving_date": "Выберите дату выезда",
-        "email": "Электронная почта",
+        "email": "EMail",
         "book": "забронировать",
-        "choose_rooms": "Выберите номер (можно несколько)"
+        "choose_rooms": "Выберите номер (можно несколько)",
+        "no_room_error": "ВЫ должны выбрать хотя бы один номер"
     },
     "loading_site": "Загружаем сайт",
-    "cancel": "Отмена"
+    "cancel": "Отмена",
+    "book_success_msg": "Уважаемый (ая) %s, благодарим Вас за выбор нашего отеля! В самое ближайшее время с вами свяжется отдел бронирования \"Oasis Residence\""
 }

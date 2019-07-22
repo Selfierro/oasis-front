@@ -1,3 +1,5 @@
+import config from '../nuxt.config'
+
 export default ({ app }, inject) => {
   inject('api', async (method, url, data, content_type = 'application/json', additional_headers = {}) => {
     let axios = app.$axios
@@ -102,5 +104,8 @@ export default ({ app }, inject) => {
             }
         })
     }
+  })
+  inject('buildTitle', (subtitle) => {
+      return `${subtitle} - ${config['app_title']}`
   })
 }

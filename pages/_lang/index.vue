@@ -31,7 +31,7 @@
                 BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
             hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false')
-                slide(v-for="(item, index) in index_page.news" :key="`news-${index}`")
+                slide(v-for="(item, index) in index_page.news" :key="`news-${index}`" :index="index")
                     div
                         h2 {{ $t('index.news_and_events') }}
                         h3 {{ item.title }}
@@ -39,14 +39,14 @@
                         NLink(:to="$path(`/news/${item.id}`)") {{ $t('index.more') }}
 
             hooper(ref='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider")
-                slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`")
+                slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`" :index="index")
                     img(:src="item.image")
                 hooper-navigation(slot='hooper-addons')
         .aboutOasis
             .container
                 h2 {{ $t('index.why_choose_oasis') }}
                 .flexGrid
-                    .flexItem(v-for="(item, index) in index_page.info", :key="`info-${index}`")
+                    .flexItem(v-for="(item, index) in index_page.info", :key="`info-${index}`" :index="index")
                         div(:style="`background-image: url(${item.icon})`")
                             h3 {{ item.title }}
                             p(v-html="item.text")
@@ -54,7 +54,7 @@
             .container
                 h2 {{ $t('index.feedbacks') }}
                 hooper(:settings="hooperSettings")
-                    slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`")
+                    slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`" :index="index")
                         div.item
                             img(:src="feedback.logo")
                             h5 {{ feedback.full_name }}
@@ -105,9 +105,24 @@
         },
         async asyncData({params, app}) {
             const index_result = await app.$api('get', '/index')
+            let index_page = index_result['response']
+
+            let locale = app.i18n._vm._data.locale
+            let messages = app.i18n._vm._data.messages
+
+            if (index_page.seo.length > 0) {
+                let seo = index_page.seo[0]
+
+                app.$buildSeoTags({
+                    'title': messages[locale].header.main,
+                    'desc': seo.index_description,
+                    'kw': seo.index_keywords,
+                    'image': ''
+                })
+            }
 
             return {
-                index_page: index_result['response']
+                index_page: index_page
             }
         },
         mounted() {

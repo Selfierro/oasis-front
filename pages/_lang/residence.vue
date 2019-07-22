@@ -3,7 +3,7 @@
         ResidenceHeader(:contacts="contacts")
         .slider
 
-            hooper(:settings="hooperSettings")
+            hooper(:settings="hooperSettings" :autoPlay="true")
                 slide(v-for="(slide, index) in about_page.top_residence_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
                         img(:src="slide.image")
@@ -40,7 +40,7 @@
                                     .rooms {{ item.title }}
                                     .peoples {{ item.subtitle }}
                                 div.end
-                                    .prices(:class="item.price === 'som' ? 'som' : 'dollar'") {{ item.price }}
+                                    .prices(:class="item.currency === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     // {{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
@@ -85,6 +85,18 @@
     import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
     import 'hooper/dist/hooper.css'
+
+    let common = {
+        'scrollTo': (context) => {
+            let currentPath = context.$route.fullPath
+
+            if (currentPath.includes('about')) {
+                context.$nuxt.$emit('SCROLL_TO', 'about')
+            } else if (currentPath.includes('num')) {
+                context.$nuxt.$emit('SCROLL_TO', 'rooms')
+            }
+        }
+    }
 
     export default {
         components: {
@@ -156,12 +168,15 @@
             this.contacts = contacts.length > 0 ? contacts[0] : {}
             this.about_text = info.length > 0 ? info[0].text : {}
             this.about_text_additional = info.length > 0 ? info[0].additional : []
+
+            common.scrollTo(this)
         },
         methods: {
             bookRoom(id) {
                 this.$nuxt.$emit('ROOM_CHOSEN', id)
             }
-        }
+        },
+        common: common
     }
 </script>
 

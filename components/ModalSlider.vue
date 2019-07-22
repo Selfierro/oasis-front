@@ -1,5 +1,6 @@
 <template lang="pug">
     .modalSlider(:class="modalClass")
+        button(@onclick="close") закрыть
         .slider
             hooper(:settings="hooperSettings" :autoPlay="true" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in slides" :key="`slides-${index}`" :index="index")
@@ -32,6 +33,11 @@
                 this.modalClass = ''
             }
         })
+    },
+    methods: {
+        close() {
+            this.modalClass = ''
+        }
     }
   }
 </script>

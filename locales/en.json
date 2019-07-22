@@ -23,7 +23,8 @@
         "oasis_regency": "OASIS REGENCY",
         "booking_department": "RESERVATIONS DEPARTMENT",
         "common_questions": "GENERAL QUESTIONS/SUGGESTIONS",
-        "oasis_karaoi": "OASIS Kara Oi"
+        "oasis_karaoi": "OASIS Kara Oi",
+        "restaurant": "Restaurant"
     },
     "header": {
         "main": "Home",

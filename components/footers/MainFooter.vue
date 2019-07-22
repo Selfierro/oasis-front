@@ -15,6 +15,9 @@
                         .flexItem
                             h4 {{ $t('footer.common_questions')  }}
                             p {{ contacts.regency_common_email }}
+                        .flexItem
+                            h4 {{ $t('footer.restaurant')  }}
+                            p {{ contacts.restaurant_phone }}
                 .mainFlexItem.rightSide
                     .flexGrid
                         .flexItem

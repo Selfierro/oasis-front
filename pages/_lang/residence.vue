@@ -19,7 +19,7 @@
                         .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index" v-if="item.position === 'top'")
                             h3 {{ item.title }}
                             p(v-html="item.text")
-        //.reservation
+        .reservation
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}

@@ -1,7 +1,7 @@
 <template lang="pug">
     .modalSlider(v-show="display")
         button(@click="close") закрыть
-        .slider
+        .slider(v-if="display")
             hooper(:settings="hooperSettings" :autoPlay="true" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in slides" :key="`slides-${index}`" :index="index")
                     div.item

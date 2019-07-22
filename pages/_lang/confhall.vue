@@ -3,7 +3,7 @@
         ResidenceHeader(:contacts="contacts")
         .slider
 
-            hooper(:settings="hooperSettings"  :autoPlay="true")
+            hooper(:settings="hooperSettings"  :autoPlay="true" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in conf_page.top_residence_slides" :key="`conference-top-${index}`", :index="index")
                     div.item
                         img(:src="slide.image")
@@ -20,7 +20,7 @@
                             h3 {{ item.title }}
                             p(v-html="item.text")
         .carousel
-            hooper(:settings="hooperSettings4")
+            hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom-${index}`", :index="index")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')

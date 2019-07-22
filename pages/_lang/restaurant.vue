@@ -3,7 +3,7 @@
         ResidenceHeader(:contacts="contacts")
         .slider
 
-            hooper(:settings="hooperSettings"  :autoPlay="true")
+            hooper(:settings="hooperSettings"  :autoPlay="true" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in restaurant_page.top_residence_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
                         img(:src="slide.image")
@@ -15,13 +15,13 @@
                     h2 {{ $t('restaurant') }}
                     p(v-html="about_text")
         .carousel.book
-            hooper(:settings="hooperSettings5")
+            hooper(:settings="hooperSettings5" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in restaurant_page.menu" :key="`menu-slides-${slideIndex}`" :index="slideIndex")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
         .carousel
-            hooper(:settings="hooperSettings4")
+            hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in restaurant_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')

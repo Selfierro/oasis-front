@@ -3,7 +3,7 @@
         KaraOiHeader(:contacts="contacts")
         .slider
 
-            hooper(:settings="hooperSettings"  :autoPlay="true")
+            hooper(:settings="hooperSettings"  :autoPlay="true" :infiniteScroll="true" :transition="1500")
                 slide(v-for="(slide, index) in about_page.top_karaoi_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
                         img(:src="slide.image")
@@ -31,7 +31,7 @@
                 .ItemHotel
                     .leftSide
                         .wrapperShadow
-                            hooper(:sync='`slider-${index}`' :settings="hooperSettings2").bigSlide
+                            hooper(:sync='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="800").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
                                     img(:src="slide.image")
                                 hooper-navigation(slot='hooper-addons')
@@ -42,7 +42,7 @@
                                 div.end
                                     .prices(:class="item.currency === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     //{{ $t('som') }}
-                        hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3").smallSlide
+                        hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3" :infiniteScroll="true" :transition="800").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
                                 img(:src="slide.image")
                     .rightSide
@@ -62,7 +62,7 @@
                         h4 {{ item.title }}
                         p(v-html="item.text")
         .carousel
-            hooper(:settings="hooperSettings4")
+            hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in about_page.bottom_karaoi_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')

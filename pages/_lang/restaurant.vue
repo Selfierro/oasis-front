@@ -20,12 +20,16 @@
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
+
+            ModalSlider(:id="`modal-slider-menu`", :slides="restaurant_page.menu")
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in restaurant_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
                     img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
+
+            ModalSlider(:id="`modal-slider-bottom-slides`", :slides="restaurant_page.bottom_residence_slides")
         SecondFooter(:contacts="contacts" id="contact")
 </template>
 
@@ -36,8 +40,10 @@
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
 
+    import ModalSlider from '~/components/ModalSlider'
+
     export default {
-        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm },
+        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ModalSlider },
         data () {
             return {
                 hooperSettings: {

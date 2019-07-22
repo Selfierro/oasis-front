@@ -42,7 +42,7 @@
         "adult_quantity": "Guests",
         "children_quantity": "Children",
         "leaving_date": "Check-out date",
-        "email": "EMail",
+        "email": "E-mail",
         "book": "book now",
         "choose_rooms": "select a number (you can choose several)",
         "no_room_error": "You have to choose at least one room"

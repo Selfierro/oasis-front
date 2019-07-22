@@ -56,7 +56,8 @@
                 hooper(:settings="hooperSettings")
                     slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`" :index="index")
                         div.item
-                            img(:src="feedback.logo")
+                            a(:href="feedback.url" target="_blank")
+                              img(:src="feedback.logo")
                             h5 {{ feedback.full_name }}
                             span {{ feedback.date }}
                             p {{ feedback.comment }}

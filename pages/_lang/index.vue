@@ -23,7 +23,7 @@
                     BookingForm(v-show="residence_book_active", :rooms_choices="index_page.residence_rooms")
                     BookingForm(v-show="!residence_book_active", :rooms_choices="index_page.karaoi_rooms")
 
-        .reservation
+        //.reservation
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}

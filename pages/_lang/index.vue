@@ -23,7 +23,7 @@
                     BookingForm(v-show="residence_book_active", :rooms_choices="index_page.residence_rooms")
                     BookingForm(v-show="!residence_book_active", :rooms_choices="index_page.karaoi_rooms")
 
-        .reservation
+        //.reservation
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}
@@ -56,7 +56,8 @@
                 hooper(:settings="hooperSettings" :infiniteScroll="true" :transition="1000")
                     slide(v-for="(feedback, index) in index_page.feedbacks" :key="`feedback-${index}`" :index="index")
                         div.item
-                            img(:src="feedback.logo")
+                            a(:href="feedback.url" target="_blank")
+                              img(:src="feedback.logo")
                             h5 {{ feedback.full_name }}
                             span {{ feedback.date }}
                             p {{ feedback.comment }}

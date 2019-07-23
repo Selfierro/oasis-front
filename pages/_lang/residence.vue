@@ -18,7 +18,7 @@
                         .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index" v-if="item.position === 'top'")
                             h3 {{ item.title }}
                             p(v-html="item.text")
-        .reservation
+        .reservation(v-show="booking_modal_opened")
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}
@@ -30,7 +30,7 @@
                 .ItemHotel
                     .leftSide
                         .wrapperShadow
-                            hooper(:sync='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="1000").bigSlide
+                            hooper(:group='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="1000").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
                                     img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
                                 hooper-navigation(slot='hooper-addons')
@@ -41,9 +41,9 @@
                                 div.end
                                     .prices(:class="item.currency === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     // {{ $t('som') }}
-                        hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3" :infiniteScroll="true" :transition="1000").smallSlide
+                        hooper(:group="`slider-${index}`" :settings="hooperSettings3" :infiniteScroll="true" :transition="1000").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
-                                img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
+                                img(:src="slide.image")
                     .rightSide
                         label(@click="bookRoom(item.id)") {{ $t('book') }}
                         p(v-html="item.description")
@@ -159,14 +159,30 @@
                 },
                 contacts: {},
                 about_text: '',
-                about_text_additional: []
+                about_text_additional: [],
+                booking_modal_opened: false
             }
         },
         async asyncData({ params, app }) {
             const about_result = await app.$api('get', '/about')
+            let about_page = about_result['response']
+
+            let locale = app.$getCurrentLocale()
+            let messages = app.$getLocaleMessages()
+
+            if (about_page.seo.length > 0) {
+                let seo = about_page.seo[0]
+
+                app.$buildSeoTags({
+                    'title': messages[locale].footer.oasis_regency,
+                    'desc': seo.residence_description,
+                    'kw': seo.residence_keywords,
+                    'image': ''
+                })
+            }
 
             return {
-                about_page: about_result['response']
+                about_page: about_page
             }
         },
         mounted() {
@@ -182,6 +198,7 @@
         methods: {
             bookRoom(id) {
                 this.$nuxt.$emit('ROOM_CHOSEN', id)
+                this.booking_modal_opened = true
             },
             openModalSlider(id) {
                 this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)

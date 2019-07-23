@@ -33,4 +33,10 @@ export default ({ app }, inject) => {
   inject('path', (path) => {
     return `/${app.store.getters['getLocale']}${path}`
   })
+  inject('getLocaleMessages', () => {
+      return app.i18n._vm._data.messages
+  })
+  inject('getCurrentLocale', () => {
+      return app.i18n._vm._data.locale
+  })
 }

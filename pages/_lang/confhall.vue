@@ -89,9 +89,24 @@
         },
         async asyncData({params, app}) {
             const conference_result = await app.$api('get', '/conference')
+            let conf_page = conference_result['response']
+
+            let locale = app.$getCurrentLocale()
+            let messages = app.$getLocaleMessages()
+
+            if (conf_page.seo.length > 0) {
+                let seo = conf_page.seo[0]
+
+                app.$buildSeoTags({
+                    'title': messages[locale].header.confhall,
+                    'desc': seo.confhall_description,
+                    'kw': seo.confhall_keywords,
+                    'image': ''
+                })
+            }
 
             return {
-                conf_page: conference_result['response']
+                conf_page: conf_page
             }
         },
         mounted() {

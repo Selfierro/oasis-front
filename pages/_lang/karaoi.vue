@@ -19,7 +19,7 @@
                         .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index")
                             h3 {{ item.title }}
                             p(v-html="item.text")
-        .reservation
+        //.reservation
             .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ
                 p Вы можете выбрать номер и все доступные опции, <br> забронировать его прямо на сайте

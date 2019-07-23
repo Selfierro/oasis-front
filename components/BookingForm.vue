@@ -122,6 +122,7 @@
         Settings.defaultLocale = this.$store.getters['getLocale']
 
         this.$nuxt.$on('ROOM_CHOSEN', (id) => {
+            this.rooms = []
             this.rooms.push(id)
         })
     }

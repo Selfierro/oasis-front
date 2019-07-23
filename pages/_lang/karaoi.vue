@@ -31,7 +31,7 @@
                 .ItemHotel
                     .leftSide
                         .wrapperShadow
-                            hooper(:sync='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="800").bigSlide
+                            hooper(:group='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="800").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
                                     img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
                                 hooper-navigation(slot='hooper-addons')
@@ -42,9 +42,9 @@
                                 div.end
                                     .prices(:class="item.currency === 'som' ? 'som' : 'dollar'") {{ item.price }}
                                     //{{ $t('som') }}
-                        hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3" :infiniteScroll="true" :transition="800").smallSlide
+                        hooper(:group="`slider-${index}`" :settings="hooperSettings3" :infiniteScroll="true" :transition="800").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
-                                img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
+                                img(:src="slide.image")
                     .rightSide
                         //label(@click="bookRoom(item.id)") забронировать
                         p(v-html="item.description")

@@ -18,7 +18,7 @@
                         .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index" v-if="item.position === 'top'")
                             h3 {{ item.title }}
                             p(v-html="item.text")
-        .reservation
+        .reservation(v-show="booking_modal_opened")
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}
@@ -159,7 +159,8 @@
                 },
                 contacts: {},
                 about_text: '',
-                about_text_additional: []
+                about_text_additional: [],
+                booking_modal_opened: false
             }
         },
         async asyncData({ params, app }) {
@@ -197,6 +198,7 @@
         methods: {
             bookRoom(id) {
                 this.$nuxt.$emit('ROOM_CHOSEN', id)
+                this.booking_modal_opened = true
             },
             openModalSlider(id) {
                 this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)

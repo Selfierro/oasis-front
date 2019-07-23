@@ -8,19 +8,21 @@ html.loaded
         visibility: hidden
     .bannerChoiceHotel
         .flex
-            .item.leftImage
-                left: 1%
-            .item.rightImage
-                right: 1%
-            .item
-                .logo
-                    opacity: 1
-                    top: 50%
-            &:before
-                height: 100%
+            //.item.leftImage
+            //    left: 1%
+            //.item.rightImage
+            //    right: 1%
+            //.item
+            //    .logo
+            //        opacity: 1
+            //        top: 50%
+            //&:before
+            //    height: 100%
 .bannerChoiceHotel
+    margin-bottom: 40px
     overflow: hidden
-    margin-bottom: 80px
+    padding-bottom: 50px
+    padding-top: 50px
     a
         display: block
         position: absolute
@@ -31,23 +33,42 @@ html.loaded
     .flex
         display: flex
         position: relative
-        margin: 0 -2%
-        &:before
-            @include tr1
-            transition-timing-function: ease-out
-            transition-delay: 1s
-            position: absolute
-            content: ''
-            width: 120px
-            top: 0
-            left: 50%
-            transform: translateX(-50%)
-            bottom: 0
-            height: 0
-            background-color: #E7A545
+        //margin: 0 -2%
+        //&:before
+        //    @include tr1
+        //    transition-timing-function: ease-out
+        //    transition-delay: 1s
+        //    position: absolute
+        //    content: ''
+        //    width: 120px
+        //    top: 0
+        //    left: 50%
+        //    transform: translateX(-50%)
+        //    bottom: 0
+        //    height: 0
+        //    background-color: #E7A545
         .item
             width: 50%
             position: relative
+            transition: .55s
+            &:before
+                position: absolute
+                content: ''
+                top: 0
+                bottom: 0
+                right: 0
+                left: 0
+                background-color: rgba(0, 0, 0, 0.5)
+                opacity: 0
+                @include tr0-3
+            &:hover
+                transform: scale(1.12)
+                z-index: 1
+                &:before
+                    opacity: 1
+                .logo
+                    top: 50%
+                    opacity: 1
             .logo
                 position: absolute
                 top: 60%
@@ -55,7 +76,6 @@ html.loaded
                 transform: translate(-50%, -50%)
                 width: 290px
                 transition: 1s
-                transition-delay: 1s
                 opacity: 0
                 @media (max-width: 640px)
                     width: 70%
@@ -69,12 +89,12 @@ html.loaded
                 width: 100%
                 height: 100%
                 object-position: left
-            &.leftImage
-                left: -100%
-                @include tr1
-            &.rightImage
-                right: -100%
-                @include tr1
+            //&.leftImage
+            //    left: -100%
+            //    @include tr1
+            //&.rightImage
+            //    right: -100%
+            //    @include tr1
 .reservation
     padding: 100px 0
     margin: 0 8.3%

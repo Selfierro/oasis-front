@@ -26,7 +26,7 @@
                 div
                     input(:placeholder="$t('booking_form.email')" id="email" type="email" v-model="email" required="'required'")
                     span(v-for="e in errors.collect('email')") {{ e }}
-                div
+                //div
                     .nameForm {{ $t('booking_form.choose_rooms') }}
                     .flexGridInner
                         .flexItem(v-for="item in rooms_choices")

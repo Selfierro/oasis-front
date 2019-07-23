@@ -13,10 +13,10 @@
                     a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.contacts')  }}
                 .rightSide
                     .phone
-                        a(:href="`tel:${contacts.karaoi_main_phone}`") {{ contacts.karaoi_main_phone }}
+                        a(:href="`tel:${contacts.karaoi_main_phone}`" target="_blank") {{ contacts.karaoi_main_phone }}
                     .social
-                        a(:href="contacts.karaoi_instagram").instagram
-                        a(:href="contacts.karaoi_facebook").facebook
+                        a(:href="contacts.karaoi_instagram" target="_blank").instagram
+                        a(:href="contacts.karaoi_facebook" target="_blank").facebook
                     LS
                 .mobileBurger
                     span(@click="myFilter") {{ $t('header.menu')  }}
@@ -28,10 +28,10 @@
                             a(href="#contact" v-smooth-scroll="{ duration: 1000, offset: -50 }") {{ $t('header.contacts')  }}
                         LS
                         .social
-                            a(:href="contacts.regency_instagram").instagram
-                            a(:href="contacts.regency_facebook").facebook
+                            a(:href="contacts.regency_instagram" target="_blank").instagram
+                            a(:href="contacts.regency_facebook" target="_blank").facebook
                         .mail
-                            a(:href="`mailto:${contacts.regency_common_email}`") {{ contacts.regency_common_email }}
+                            a(:href="`mailto:${contacts.regency_common_email}`" target="_blank") {{ contacts.regency_common_email }}
 
 </template>
 

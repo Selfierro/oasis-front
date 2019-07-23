@@ -2,7 +2,6 @@
     div.karaOi.residence
         ResidenceHeader(:contacts="contacts")
         .slider
-
             hooper(:settings="hooperSettings" :autoPlay="true" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in about_page.top_residence_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
@@ -19,7 +18,7 @@
                         .flexItem(v-for="(item, index) in about_text_additional" :key="`about-additional-${index}`" :index="index" v-if="item.position === 'top'")
                             h3 {{ item.title }}
                             p(v-html="item.text")
-        //.reservation
+        .reservation
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}
@@ -33,7 +32,7 @@
                         .wrapperShadow
                             hooper(:sync='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="1000").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image")
+                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
                                 hooper-navigation(slot='hooper-addons')
                             .priceWrapper
                                 div.start
@@ -44,11 +43,13 @@
                                     // {{ $t('som') }}
                         hooper(:ref="'`slider-${index}`'" :settings="hooperSettings3" :infiniteScroll="true" :transition="1000").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
-                                img(:src="slide.image")
+                                img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
                     .rightSide
                         label(@click="bookRoom(item.id)") {{ $t('book') }}
                         p(v-html="item.description")
                         h6 {{ item.additional_text }}
+
+                    ModalSlider(:id="`modal-slider-${item.id}`", :slides="item.gallery")
 
             .hotelGrid(v-for="(item, index) in about_page.residence_additional_services" :key="`room-as-${index}`" :index="index")
                 .ItemHotel
@@ -56,17 +57,21 @@
                         .wrapperShadow
                             hooper(:settings="hooperSettings2").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-as-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image")
+                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-add-service-${item.id}`)")
                                 hooper-navigation(slot='hooper-addons')
                     .rightSide
                         h4 {{ item.title }}
                         p(v-html="item.text")
+
+                    ModalSlider(:id="`modal-slider-add-service-${item.id}`", :slides="item.gallery")
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in about_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
-                    img(:src="slide.image")
+                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
+
+            ModalSlider(:id="`modal-slider-bottom-slides`", :slides="about_page.bottom_residence_slides")
         .textBlock
             .grid
                 .text(v-for="(item, index) in about_text_additional" :key="`about-additional-bottom-${index}`" :index="index" v-if="item.position === 'bottom'")
@@ -85,6 +90,8 @@
     import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
     import 'hooper/dist/hooper.css'
+
+    import ModalSlider from '~/components/ModalSlider'
 
     let common = {
         'scrollTo': (context) => {
@@ -107,6 +114,7 @@
             HooperNavigation,
             HooperPagination,
             BookingForm,
+            ModalSlider
         },
         data() {
             return {
@@ -174,6 +182,9 @@
         methods: {
             bookRoom(id) {
                 this.$nuxt.$emit('ROOM_CHOSEN', id)
+            },
+            openModalSlider(id) {
+                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)
             }
         },
         common: common

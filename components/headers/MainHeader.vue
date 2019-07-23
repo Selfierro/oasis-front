@@ -9,21 +9,21 @@
                 .center
                 .rightSide
                     .mail
-                        a(:href="`mailto:${contacts.regency_common_email}`") {{ contacts.regency_common_email }}
+                        a(:href="`mailto:${contacts.regency_common_email}`" target="_blank") {{ contacts.regency_common_email }}
                     .social
-                        a(:href="contacts.regency_instagram").instagram
-                        a(:href="contacts.regency_facebook").facebook
+                        a(:href="contacts.regency_instagram" target="_blank").instagram
+                        a(:href="contacts.regency_facebook" target="_blank").facebook
                     LS
                 .mobileBurger
                     span(@click="myFilter") {{ $t('header.menu')  }}
                     .dropdown(:class="{active: isActive}")
                         LS
                         .social
-                            a(:href="contacts.regency_instagram").instagram
-                            a(:href="contacts.regency_facebook").facebook
+                            a(:href="contacts.regency_instagram" target="_blank").instagram
+                            a(:href="contacts.regency_facebook" target="_blank").facebook
 
                         .mail
-                            a(:href="`mailto:${contacts.regency_common_email}`") {{ contacts.regency_common_email }}
+                            a(:href="`mailto:${contacts.regency_common_email}`" target="_blank") {{ contacts.regency_common_email }}
 
 </template>
 

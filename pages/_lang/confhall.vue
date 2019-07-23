@@ -22,9 +22,11 @@
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom-${index}`", :index="index")
-                    img(:src="slide.image")
+                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
+
+            ModalSlider(:id="`modal-slider-bottom-slides`", :slides="conf_page.bottom_residence_slides")
         SecondFooter(:contacts="contacts" id="contact")
 </template>
 
@@ -35,8 +37,10 @@
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
 
+    import ModalSlider from '~/components/ModalSlider'
+
     export default {
-        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm },
+        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ModalSlider },
         data () {
             return {
                 hooperSettings: {
@@ -98,6 +102,11 @@
             this.about_text = info.length > 0 ? info[0].text: {}
             this.about_text_additional = info.length > 0 ? info[0].additional: []
         },
+        methods: {
+            openModalSlider(id) {
+                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)
+            }
+        }
     }
 </script>
 

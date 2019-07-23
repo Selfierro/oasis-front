@@ -85,9 +85,17 @@
         },
         async asyncData({params, app}) {
             const news_result = await app.$api('get', `news/${params.id}`)
+            let news_page = news_result['response']
+
+            app.$buildSeoTags({
+                'title': news_page.title,
+                'desc': news_page.description,
+                'kw': '',
+                'image': ''
+            })
 
             return {
-                news_page: news_result['response']
+                news_page: news_page
             }
         },
         mounted() {

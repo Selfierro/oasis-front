@@ -108,8 +108,8 @@
             const index_result = await app.$api('get', '/index')
             let index_page = index_result['response']
 
-            let locale = app.i18n._vm._data.locale
-            let messages = app.i18n._vm._data.messages
+            let locale = app.$getCurrentLocale()
+            let messages = app.$getLocaleMessages()
 
             if (index_page.seo.length > 0) {
                 let seo = index_page.seo[0]

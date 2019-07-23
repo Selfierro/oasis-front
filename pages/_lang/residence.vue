@@ -164,9 +164,24 @@
         },
         async asyncData({ params, app }) {
             const about_result = await app.$api('get', '/about')
+            let about_page = about_result['response']
+
+            let locale = app.$getCurrentLocale()
+            let messages = app.$getLocaleMessages()
+
+            if (about_page.seo.length > 0) {
+                let seo = about_page.seo[0]
+
+                app.$buildSeoTags({
+                    'title': messages[locale].footer.oasis_regency,
+                    'desc': seo.residence_description,
+                    'kw': seo.residence_keywords,
+                    'image': ''
+                })
+            }
 
             return {
-                about_page: about_result['response']
+                about_page: about_page
             }
         },
         mounted() {

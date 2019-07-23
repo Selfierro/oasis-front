@@ -108,9 +108,24 @@
         },
         async asyncData({params, app}) {
             const restaurant_result = await app.$api('get', '/restaurant')
+            let rest_page = restaurant_result['response']
+
+            let locale = app.$getCurrentLocale()
+            let messages = app.$getLocaleMessages()
+
+            if (rest_page.seo.length > 0) {
+                let seo = rest_page.seo[0]
+
+                app.$buildSeoTags({
+                    'title': messages[locale].header.restaurant,
+                    'desc': seo.restaurant_description,
+                    'kw': seo.restaurant_keywords,
+                    'image': ''
+                })
+            }
 
             return {
-                restaurant_page: restaurant_result['response']
+                restaurant_page: rest_page
             }
         },
         mounted() {

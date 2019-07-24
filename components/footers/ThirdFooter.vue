@@ -14,11 +14,11 @@
                                 p {{ contacts.regency_booking_mobile_phone }}
                         .margin
                             h3(style="color: #F4AE61") {{ $t('footer.booking_department')  }}
-                            .iconAddress
+                            .iconMail
                                 p {{ contacts.regency_booking_email }}
                         .margin
                             h3(style="color: #F4AE61") {{ $t('footer.common_questions')  }}
-                            .iconAddress
+                            .iconMail
                                 p {{ contacts.regency_common_email }}
                         .margin
                             h3(style="color: #F4AE61") {{ $t('footer.restaurant')  }}

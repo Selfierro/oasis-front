@@ -20,11 +20,11 @@
                             p(v-html="item.text")
         .reservation(v-show="booking_modal_opened")
             .wrapper
-                .close закрыть
+                .close(@click="closeBookingModal") закрыть
                 .container
                     h1 {{ $t('index.booking') }}
                     p {{ $t('index.booking_help_text') }}
-                    BookingForm(:rooms_choices="about_page.residence_rooms")
+                    BookingForm(:rooms_choices="about_page.residence_rooms", :closeModal="closeBookingModal")
         .hotel#num
             h2 {{ $t('rooms') }}
             .hotelGrid(v-for="(item, index) in about_page.residence_rooms" :key="`room-${index}`" :index="index")
@@ -203,6 +203,9 @@
             },
             openModalSlider(id) {
                 this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)
+            },
+            closeBookingModal() {
+                this.booking_modal_opened = false
             }
         },
         common: common

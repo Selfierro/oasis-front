@@ -60,6 +60,14 @@
             default: () => {
                 return []
             }
+        },
+        closeModal: {
+            type: Function,
+            default: () => {
+                return () => {
+
+                }
+            }
         }
     },
     data() {
@@ -106,6 +114,7 @@
                             'phone', 'rooms', 'full_name', 'email'
                         ])
                         this.show_book_success = true
+                        this.closeModal()
                     } else {
                         this.$pushErrors(this, result['response'].data)
                     }
@@ -113,9 +122,6 @@
                     this.error_messages.push(this.$t('booking_form.no_room_error'))
                 }
             })
-        },
-        getImage(gallery) {
-            return gallery.length > 0 ? gallery[0].image : null
         }
     },
     mounted() {

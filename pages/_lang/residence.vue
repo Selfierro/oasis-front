@@ -20,6 +20,7 @@
                             p(v-html="item.text")
         .reservation(v-show="booking_modal_opened")
             .wrapper
+                .close закрыть
                 .container
                     h1 {{ $t('index.booking') }}
                     p {{ $t('index.booking_help_text') }}

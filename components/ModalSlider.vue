@@ -3,7 +3,7 @@
         .wrapper
             div(@click="close").close
             .slider(v-if="display")
-                hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="true" :transition="1000")
+                hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="false" :transition="1000")
                     slide(v-for="(slide, index) in slides" :key="`slides-${index}`" :index="index")
                         div.item
                             img(:src="slide.image")

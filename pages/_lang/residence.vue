@@ -19,11 +19,12 @@
                             h3 {{ item.title }}
                             p(v-html="item.text")
         .reservation(v-show="booking_modal_opened")
-            .container
-                h1 {{ $t('index.booking') }}
-                p {{ $t('index.booking_help_text') }}
-                .wrapper
-                BookingForm(:rooms_choices="about_page.residence_rooms")
+            .wrapper
+                .close закрыть
+                .container
+                    h1 {{ $t('index.booking') }}
+                    p {{ $t('index.booking_help_text') }}
+                    BookingForm(:rooms_choices="about_page.residence_rooms")
         .hotel#num
             h2 {{ $t('rooms') }}
             .hotelGrid(v-for="(item, index) in about_page.residence_rooms" :key="`room-${index}`" :index="index")

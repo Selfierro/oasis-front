@@ -100,44 +100,53 @@ html.loaded
             //    right: -100%
             //    @include tr1
 .reservation
-    padding: 100px 0
-    margin: 0 8.3%
-    @media (max-width: 1450px)
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    background-color: rgba(0, 0, 0, 0.7)
+    display: flex
+    z-index: 100
+    padding: 20px 0
+    flex-direction: column
+    .wrapper
+        max-width: 600px
+        margin: 0 auto
+        background-color: #fff
         padding: 50px 0
-        margin: 0 5%
+        overflow: auto
+        position: relative
+        .close
+            position: absolute
+            top: 5px
+            right: 10px
+            font-weight: bold
+            font-size: 15px
 
-    @media (max-width: 640px)
-        padding: 50px 0
-        margin: 0 1%
     h1
         text-align: center
-        margin-bottom: 56px
+        margin-bottom: 25px
         font-weight: bold
-        font-size: 36px
-        line-height: 49px
+        font-size: 29px
         color: $black
         @media (max-width: 1450px)
             font-size: 24px
-            line-height: normal
-            margin-bottom: 30px
+            margin-bottom: 10px
         @media (max-width: 640px)
-            line-height: normal
             font-size: 20px
-            margin-bottom: 30px
+            margin-bottom: 5px
     p
         text-align: center
-        font-size: 18px
-        line-height: 25px
+        font-size: 14px
         color: $gray
-        margin-bottom: 64px
+        margin-bottom: 30px
         @media (max-width: 1450px)
-            font-size: 16px
-            line-height: normal
-            margin-bottom: 32px
+            font-size: 12px
+            margin-bottom: 20px
         @media (max-width: 640px)
-            margin-bottom: 30px
-            font-size: 15px
-            line-height: normal
+            margin-bottom: 10px
+            font-size: 12px
     .flex
         display: flex
         align-items: center
@@ -150,7 +159,7 @@ html.loaded
         .btn
             text-transform: uppercase
             cursor: pointer
-            width: 390px
+            max-width: 390px
             height: 62px
             display: flex
             align-items: center
@@ -160,7 +169,6 @@ html.loaded
             color: #292621
             @include tr0-3
             @media (max-width: 1450px)
-                width: 290px
                 height: 45px
                 font-size: 18px
             @media (max-width: 640px)
@@ -171,18 +179,12 @@ html.loaded
     .flexGrid
         display: flex
         flex-wrap: wrap
-        justify-content: space-between
-
+        max-width: 340px
+        margin: 0 auto
         @media (max-width: 960px)
             justify-content: center
         .flexItem
-            width: 608px
-            @media (max-width: 1600px)
-                width: 48%
-            @media (max-width: 1450px)
-                width: 40%
-            @media (max-width: 960px)
-                width: 100%
+            width: 100%
             > div
                 margin-bottom: 40px
                 @media (max-width: 1450px)
@@ -254,7 +256,6 @@ html.loaded
         width: 100%
         display: block
         background-color: transparent
-        padding: 0 14px
         height: 40px
         font-size: 18px
         outline: none !important
@@ -283,20 +284,20 @@ html.loaded
     .send
         width: 390px
         height: 62px
-        margin: 62px auto 0 auto
+        margin: 20px auto 0 auto
         box-sizing: border-box
         display: block
         outline: none !important
         border: 0
         text-align: center
-        background-color: #292621
+        background-color: #F4AE61
         color: $white
         font-size: 24px
         cursor: pointer
         text-transform: uppercase
         @media (max-width: 1450px)
-            width: 290px   
-            height: 45px   
+            width: 290px
+            height: 45px
             font-size: 18px
         @media (max-width: 640px)
             width: 100%

@@ -7,6 +7,10 @@
                             format="yyyy-MM-dd" :phrases="phrases")
                     span(v-for="e in errors.collect('coming_date')") {{ e }}
                 div
+                    datetime(:placeholder="$t('booking_form.leaving_date')" id="dataOut" type="text" v-model="leaving_date" required="required",
+                        format="yyyy-MM-dd" :phrases="phrases")
+                    span(v-for="e in errors.collect('leaving_date')") {{ e }}
+                div
                     input(:placeholder="$t('booking_form.full_name')" id="name" type="text" v-model="full_name" required="'required'")
                     span(v-for="e in errors.collect('full_name')") {{ e }}
                 div
@@ -18,11 +22,7 @@
                 div
                     input(:placeholder="$t('booking_form.children_quantity')" id="child" type="number" v-model="children_quantity" required="'required'")
                     span(v-for="e in errors.collect('children_quantity')") {{ e }}
-            .flexItem
-                div
-                    datetime(:placeholder="$t('booking_form.leaving_date')" id="dataOut" type="text" v-model="leaving_date" required="required",
-                             format="yyyy-MM-dd" :phrases="phrases")
-                    span(v-for="e in errors.collect('leaving_date')") {{ e }}
+
                 div
                     input(:placeholder="$t('booking_form.email')" id="email" type="email" v-model="email" required="'required'")
                     span(v-for="e in errors.collect('email')") {{ e }}

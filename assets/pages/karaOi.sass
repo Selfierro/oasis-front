@@ -38,6 +38,8 @@
         background: rgba(16, 16, 16, 0.8)
         outline: none !important
         padding: 0
+        @media (max-width: 960px)
+            background: rgba(16, 16, 16, 0.27)
     svg
         fill: $white
         width: 50px
@@ -343,11 +345,16 @@
                 font-size: 12px
 .carousel.book
     width: 60%
+    @media (max-width: 960px)
+        width: 90%
     .hooper
         height: auto
     img
         border: 0
         display: block
+    @media (max-width: 960px)
+        .hooper-pagination
+            display: none
 .carousel
     width: 80%
     margin: 40px auto 100px auto
@@ -365,13 +372,13 @@
     .hooper-prev
         left: -60px
         @media (max-width: 960px)
-            left: -40px
+            left: 0
         @media (max-width: 640px)
             left: 0
     .hooper-next
         right: -60px
         @media (max-width: 960px)
-            right: -40px
+            right: 0
         @media (max-width: 640px)
             right: 0
     button

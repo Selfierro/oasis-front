@@ -97,8 +97,13 @@
                 height: 100%
                 .item
                     height: 100%
+        .hooper-prev
+            left: 20px
+        .hooper-next
+            right: 20px
         .hooper-next, .hooper-prev
             align-items: center
             display: flex
             justify-content: center
+            opacity: 0.4
 </style>

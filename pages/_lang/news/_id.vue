@@ -5,7 +5,7 @@
             h2 {{ $t('news.news_and_events') }}
             .slider
 
-                hooper(:settings="hooperSettings0")
+                hooper(:settings="hooperSettings0" :infiniteScroll="true" :transition="1000")
                     slide(v-for="(slide, index) in news_page.gallery" :key="`gallery-${index}`", :index="index")
                         div.item
                             img(:src="slide.image")
@@ -15,12 +15,13 @@
                 .date {{ news_page.date }}
                 p(v-html="news_page.description")
             .carousel
-                hooper(:settings="hooperSettings4")
+                hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                     slide(v-for="(item, index) in news_page.other_news" :key="`other-news-${index}`", :index="index")
-                        img(:src="item.image")
+                        NLink(:to="$path(`/news/${item.id}`)")
+                            img(:src="item.image")
                         .desc
-                            NLink(:to="$path(`/news/${item.id}`)")
-                                h3 {{ item.title }}
+                            h3
+                                NLink(:to="$path(`/news/${item.id}`)") {{ item.title }}
                             .date {{ item.date }}
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')

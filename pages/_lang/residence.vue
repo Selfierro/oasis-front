@@ -2,7 +2,7 @@
     div.karaOi.residence
         ResidenceHeader(:contacts="contacts")
         .slider
-            hooper(:settings="hooperSettings" :autoPlay="true" :infiniteScroll="true" :transition="1000")
+            hooper(:settings="hooperSettings" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in about_page.top_residence_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
                         img(:src="slide.image")

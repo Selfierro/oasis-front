@@ -46,7 +46,7 @@
             .container
                 h2 {{ $t('index.why_choose_oasis') }}
                 .flexGrid
-                    .flexItem(v-for="(item, index) in index_page.info", :key="`info-${index}`" :index="index")
+                    .flexItem(v-scroll-reveal.reset="{distance: '100px',duration: 900,delay: 800, interval: 3000 }" v-for="(item, index) in index_page.info", :key="`info-${index}`" :index="index" )
                         div(:style="`background-image: url(${item.icon})`")
                             h3 {{ item.title }}
                             p(v-html="item.text")
@@ -70,7 +70,6 @@
     import MainHeader from '~/components/headers/MainHeader'
     import MainFooter from '~/components/footers/MainFooter'
     import BookingForm from '~/components/BookingForm'
-
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
 

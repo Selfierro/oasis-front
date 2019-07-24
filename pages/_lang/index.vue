@@ -30,7 +30,7 @@
                 .wrapper
                 BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
-            hooper(sync='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false' :infiniteScroll="true" :transition="1000")
+            hooper(group='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false' :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-${index}`" :index="index")
                     div
                         h2 {{ $t('index.news_and_events') }}
@@ -38,7 +38,7 @@
                         p {{ item.short_description }}
                         NLink(:to="$path(`/news/${item.id}`)") {{ $t('index.more') }}
 
-            hooper(ref='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider" :infiniteScroll="true" :transition="1000")
+            hooper(group='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`" :index="index")
                     img(:src="item.image")
                 hooper-navigation(slot='hooper-addons')

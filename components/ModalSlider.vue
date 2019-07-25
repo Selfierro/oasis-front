@@ -2,8 +2,8 @@
     .modalSlider(v-show="display")
         .wrapper
             div(@click="close").close
-            .slider(v-if="display")
-                hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="false" :transition="1000")
+            .slider()
+                hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="false" :transition="1000" ref="slider")
                     slide(v-for="(slide, index) in slides" :key="`slides-${index}`" :index="index")
                         div.item
                             img(:src="slide.image")
@@ -29,12 +29,21 @@
                     mouseDrag: true,
                     itemsToShow: 1
                 },
-                display: false
+                display: false,
+                slider: null
             }
         },
         mounted() {
-            this.$nuxt.$on('MODAL_SLIDER_TOGGLE', (id) => {
+            this.slider = this.$refs['slider']
+            let that = this
+
+            this.$nuxt.$on('MODAL_SLIDER_TOGGLE', (id, slideIndex) => {
                 this.display = this.id === id;
+
+                this.$nextTick(function() {
+                    that.slider.updateWidth()
+                    that.slider.slideTo(slideIndex)
+                })
             })
         },
         methods: {

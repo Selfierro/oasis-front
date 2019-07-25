@@ -23,7 +23,7 @@
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in restaurant_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
-                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`)")
+                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`, slideIndex)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
 
@@ -136,8 +136,8 @@
             this.about_text = info.length > 0 ? info[0].text: {}
         },
         methods: {
-            openModalSlider(id) {
-                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)
+            openModalSlider(id, index) {
+                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id, index)
             }
         }
     }

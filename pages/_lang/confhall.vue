@@ -22,7 +22,7 @@
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom-${index}`", :index="index")
-                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`)")
+                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`, index)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
 
@@ -118,8 +118,8 @@
             this.about_text_additional = info.length > 0 ? info[0].additional: []
         },
         methods: {
-            openModalSlider(id) {
-                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)
+            openModalSlider(id, slideIndex) {
+                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id, slideIndex)
             }
         }
     }

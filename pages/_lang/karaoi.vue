@@ -33,7 +33,7 @@
                         .wrapperShadow
                             hooper(:group='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="800").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`)")
+                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`, slideIndex)")
                                 hooper-navigation(slot='hooper-addons')
                             .priceWrapper
                                 div.start
@@ -58,7 +58,7 @@
                         .wrapperShadow
                             hooper(:settings="hooperSettings2").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-as-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-add-service-${item.id}`)")
+                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-add-service-${item.id}`, slideIndex)")
                                 hooper-navigation(slot='hooper-addons')
                     .rightSide
                         h4 {{ item.title }}
@@ -68,7 +68,7 @@
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in about_page.bottom_karaoi_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
-                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`)")
+                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`, slideIndex)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
 
@@ -167,8 +167,8 @@
             bookRoom(id) {
                 this.$nuxt.$emit('ROOM_CHOSEN', id)
             },
-            openModalSlider(id) {
-                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id)
+            openModalSlider(id, slideIndex) {
+                this.$nuxt.$emit('MODAL_SLIDER_TOGGLE', id, slideIndex)
             }
         }
     }

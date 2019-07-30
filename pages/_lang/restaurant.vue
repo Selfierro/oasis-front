@@ -28,12 +28,12 @@
                 hooper-pagination(slot='hooper-addons')
 
             ModalSlider(:id="`modal-slider-bottom-slides`", :slides="restaurant_page.bottom_residence_slides")
-        SecondFooter(:contacts="contacts" id="contact")
+        ThirdFooter(:contacts="contacts" id="contact")
 </template>
 
 <script>
     import ResidenceHeader from '~/components/headers/ResidenceHeader'
-    import SecondFooter from '~/components/footers/SecondFooter'
+    import ThirdFooter from '~/components/footers/ThirdFooter'
     import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
@@ -41,7 +41,7 @@
     import ModalSlider from '~/components/ModalSlider'
 
     export default {
-        components: { ResidenceHeader, SecondFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ModalSlider },
+        components: { ResidenceHeader, ThirdFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ModalSlider },
         data () {
             return {
                 hooperSettings: {

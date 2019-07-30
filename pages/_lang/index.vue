@@ -79,9 +79,15 @@
             return {
                 hooperSettings: {
                     wheelControl: false,
-                    touchDrag: false,
+                    touchDrag: true,
                     mouseDrag: false,
                     breakpoints: {
+                        0: {
+                            itemsToShow: 1,
+                            wheelControl: true,
+                            touchDrag: true,
+                            mouseDrag: true,
+                        },
                         640: {
                             itemsToShow: 1,
                             wheelControl: true,

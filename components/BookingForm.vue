@@ -37,6 +37,7 @@
                                 | {{ item.title }}
                                 | {{ item.subtitle }}
         button(type="submit").send {{ $t('booking_form.book') }}
+        br
         p(v-if="show_book_success") {{ book_success_msg }}
         p(v-for="msg in this.error_messages") {{ msg }}
 </template>
@@ -114,7 +115,7 @@
                             'phone', 'rooms', 'full_name', 'email'
                         ])
                         this.show_book_success = true
-                        this.closeModal()
+                        //this.closeModal()
                     } else {
                         this.$pushErrors(this, result['response'].data)
                     }

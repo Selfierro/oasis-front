@@ -1,43 +1,44 @@
 <template lang="pug">
-    form(@submit.prevent="createBooking")
-        .flexGrid
-            .flexItem
-                div
-                    datetime(:placeholder="$t('booking_form.coming_date')" id="dataIn" type="text" v-model="coming_date" required="required",
+    div
+        form(@submit.prevent="createBooking" v-show="!booking_success")
+            .flexGrid
+                .flexItem
+                    div
+                        datetime(:placeholder="$t('booking_form.coming_date')" id="dataIn" type="text" v-model="coming_date" required="required",
+                                format="yyyy-MM-dd" :phrases="phrases")
+                        span(v-for="e in errors.collect('coming_date')") {{ e }}
+                    div
+                        datetime(:placeholder="$t('booking_form.leaving_date')" id="dataOut" type="text" v-model="leaving_date" required="required",
                             format="yyyy-MM-dd" :phrases="phrases")
-                    span(v-for="e in errors.collect('coming_date')") {{ e }}
-                div
-                    datetime(:placeholder="$t('booking_form.leaving_date')" id="dataOut" type="text" v-model="leaving_date" required="required",
-                        format="yyyy-MM-dd" :phrases="phrases")
-                    span(v-for="e in errors.collect('leaving_date')") {{ e }}
-                div
-                    input(:placeholder="$t('booking_form.full_name')" id="name" type="text" v-model="full_name" required="'required'")
-                    span(v-for="e in errors.collect('full_name')") {{ e }}
-                div
-                    input(:placeholder="$t('booking_form.phone')" id="phone" type="text" v-model="phone" required="'required'")
-                    span(v-for="e in errors.collect('phone')") {{ e }}
-                div
-                    input(:placeholder="$t('booking_form.adult_quantity')" id="geust" type="number" v-model="adult_quantity" required="'required'")
-                    span(v-for="e in errors.collect('adult_quantity')") {{ e }}
-                div
-                    input(:placeholder="$t('booking_form.children_quantity')" id="child" type="number" v-model="children_quantity" required="'required'")
-                    span(v-for="e in errors.collect('children_quantity')") {{ e }}
+                        span(v-for="e in errors.collect('leaving_date')") {{ e }}
+                    div
+                        input(:placeholder="$t('booking_form.full_name')" id="name" type="text" v-model="full_name" required="'required'")
+                        span(v-for="e in errors.collect('full_name')") {{ e }}
+                    div
+                        input(:placeholder="$t('booking_form.phone')" id="phone" type="text" v-model="phone" required="'required'")
+                        span(v-for="e in errors.collect('phone')") {{ e }}
+                    div
+                        input(:placeholder="$t('booking_form.adult_quantity')" id="geust" type="number" v-model="adult_quantity" required="'required'")
+                        span(v-for="e in errors.collect('adult_quantity')") {{ e }}
+                    div
+                        input(:placeholder="$t('booking_form.children_quantity')" id="child" type="number" v-model="children_quantity" required="'required'")
+                        span(v-for="e in errors.collect('children_quantity')") {{ e }}
 
-                div
-                    input(:placeholder="$t('booking_form.email')" id="email" type="email" v-model="email" required="'required'")
-                    span(v-for="e in errors.collect('email')") {{ e }}
-                //div
-                    .nameForm {{ $t('booking_form.choose_rooms') }}
-                    .flexGridInner
-                        .flexItem(v-for="item in rooms_choices")
-                            label
-                                input(type="checkbox", v-model="rooms", :value="item.id")
-                                span.indicator
-                                img(:src="getImage(item.gallery)")
-                                | {{ item.title }}
-                                | {{ item.subtitle }}
-        button(type="submit").send {{ $t('booking_form.book') }}
-        br
+                    div
+                        input(:placeholder="$t('booking_form.email')" id="email" type="email" v-model="email" required="'required'")
+                        span(v-for="e in errors.collect('email')") {{ e }}
+                    //div
+                        .nameForm {{ $t('booking_form.choose_rooms') }}
+                        .flexGridInner
+                            .flexItem(v-for="item in rooms_choices")
+                                label
+                                    input(type="checkbox", v-model="rooms", :value="item.id")
+                                    span.indicator
+                                    img(:src="getImage(item.gallery)")
+                                    | {{ item.title }}
+                                    | {{ item.subtitle }}
+            button(type="submit").send {{ $t('booking_form.book') }}
+            br
         p(v-if="show_book_success") {{ book_success_msg }}
         p(v-for="msg in this.error_messages") {{ msg }}
 </template>
@@ -87,7 +88,8 @@
             },
             book_success_msg: '',
             show_book_success: false,
-            error_messages: []
+            error_messages: [],
+            booking_success: false
         }
     },
     methods: {
@@ -115,6 +117,7 @@
                             'phone', 'rooms', 'full_name', 'email'
                         ])
                         this.show_book_success = true
+                        this.booking_success = true
                         //this.closeModal()
                     } else {
                         this.$pushErrors(this, result['response'].data)

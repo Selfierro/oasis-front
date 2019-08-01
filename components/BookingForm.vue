@@ -134,6 +134,8 @@
         this.$nuxt.$on('ROOM_CHOSEN', (id) => {
             this.rooms = []
             this.rooms.push(id)
+
+            this.booking_success = false
         })
     }
   }

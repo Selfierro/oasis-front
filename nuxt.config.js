@@ -102,7 +102,7 @@ export default {
      */
     axios: {
         // See https://github.com/nuxt-community/axios-module#options
-        baseURL: process.env.NODE_ENV === 'production' ? 'http://api.oasis-residence.com/api' : 'http://api.oasis-residence.com/api'
+        baseURL: process.env.NODE_ENV === 'production' ? 'http://oasis-backend.sunrisetest.site/api' : 'http://oasis-backend.sunrisetest.site/api'
     },
 
     /*

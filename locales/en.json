@@ -47,6 +47,7 @@
         "choose_rooms": "select a number (you can choose several)",
         "no_room_error": "You have to choose at least one room"
     },
+    "choose": "Choose",
     "loading_site": "Loading",
     "cancel": "Cancel",
     "book_success_msg": "Dear %s, we thank you for choosing our hotel! Reservation department \"Oasis Residence\" will contact you as soon as possible"

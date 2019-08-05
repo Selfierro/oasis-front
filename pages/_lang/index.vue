@@ -29,19 +29,20 @@
                 p {{ $t('index.booking_help_text') }}
                 .flex
                     .lightGalleryGrid
-                        div.item(v-for="item in 4")
+                        div.item(v-for="item in index_page.residence_rooms")
                             .grid
                                 div
-                                    b Стандарт
+                                    b {{ item.title }}
                                 div.right
-                                    span 1000 c
+                                    span {{ item.price }} {{ item.currency === 'som' ? 'с' : '$'  }}
                                 div
-                                    span 1 комнатный номер
+                                    span {{ item.subtitle }}
                                 div.right
                                     label
-                                        span Выбрать
-                                        input(type="checkbox").choiceRoom
-                            img(src="~/static/jpg/home2.jpg")
+                                        span {{ $t('choose') }}
+                                        input(type="checkbox" v-model="chosen_rooms" :value="item.id").choiceRoom
+                            img(:src="item.gallery[0].image" @click="openModalRoom(`room-modal-${item.id}`)")
+                            ModalRoom(:id="`room-modal-${item.id}`", :room="item")
                     .wrapper
                         BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
@@ -87,9 +88,10 @@
     import BookingForm from '~/components/BookingForm'
     import { Hooper, Slide, Navigation as HooperNavigation , Pagination as HooperPagination  } from 'hooper'
     import 'hooper/dist/hooper.css'
+    import ModalRoom from '~/components/ModalRoom'
 
     export default {
-        components: { MainHeader, MainFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm },
+        components: { MainHeader, MainFooter, Hooper, Slide, HooperNavigation, HooperPagination, BookingForm, ModalRoom },
         data () {
             return {
                 hooperSettings: {
@@ -121,7 +123,8 @@
                     },
                 },
                 residence_book_active: true,
-                contacts: {}
+                contacts: {},
+                chosen_rooms: []
             }
         },
         async asyncData({params, app}) {
@@ -150,7 +153,21 @@
             let contacts = this.index_page.contacts
 
             this.contacts = contacts.length > 0 ? contacts[0]: {}
+
+            this.$nuxt.$on('BOOKING_SUCCESS', () => {
+                this.chosen_rooms = []
+            })
         },
+        watch: {
+            chosen_rooms() {
+                this.$nuxt.$emit('ROOM_CHOSEN', this.chosen_rooms)
+            }
+        },
+        methods: {
+            openModalRoom(id) {
+                this.$nuxt.$emit('MODAL_ROOM_TOGGLE', id)
+            }
+        }
     }
 
 </script>

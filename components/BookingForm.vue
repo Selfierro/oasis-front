@@ -119,6 +119,8 @@
                         this.show_book_success = true
                         this.booking_success = true
                         //this.closeModal()
+
+                        this.$nuxt.$emit('BOOKING_SUCCESS')
                     } else {
                         this.$pushErrors(this, result['response'].data)
                     }
@@ -132,8 +134,12 @@
         Settings.defaultLocale = this.$store.getters['getLocale']
 
         this.$nuxt.$on('ROOM_CHOSEN', (id) => {
-            this.rooms = []
-            this.rooms.push(id)
+            if (Array.isArray(id)) {
+                this.rooms = id
+            } else {
+                this.rooms = []
+                this.rooms.push(id)
+            }
 
             this.booking_success = false
         })

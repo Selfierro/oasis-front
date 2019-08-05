@@ -23,12 +23,27 @@
                     BookingForm(v-show="residence_book_active", :rooms_choices="index_page.residence_rooms")
                     BookingForm(v-show="!residence_book_active", :rooms_choices="index_page.karaoi_rooms")
 
-        //.reservation
+        .reservation.noFixed
             .container
                 h1 {{ $t('index.booking') }}
                 p {{ $t('index.booking_help_text') }}
-                .wrapper
-                BookingForm(:rooms_choices="index_page.residence_rooms")
+                .flex
+                    .lightGalleryGrid
+                        div.item(v-for="item in 4")
+                            .grid
+                                div
+                                    b Стандарт
+                                div.right
+                                    span 1000 c
+                                div
+                                    span 1 комнатный номер
+                                div.right
+                                    label
+                                        span Выбрать
+                                        input(type="checkbox").choiceRoom
+                            img(src="~/static/jpg/home2.jpg")
+                    .wrapper
+                        BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
             hooper(group='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false' :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-${index}`" :index="index")

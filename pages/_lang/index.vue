@@ -157,6 +157,10 @@
             this.$nuxt.$on('BOOKING_SUCCESS', () => {
                 this.chosen_rooms = []
             })
+
+            this.$nuxt.$on('ROOM_CLICKED', (id) => {
+                this.chosen_rooms.push(id)
+            })
         },
         watch: {
             chosen_rooms() {

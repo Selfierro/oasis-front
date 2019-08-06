@@ -10,14 +10,9 @@
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')
             .text
-                .title Стандарт
-                .title размещение макс 2 человек
-                p 1 комнатный номер
-                p 1 комнатный номер
-                p 1 комнатный номер
-                p 1 комнатный номер
-                p 1 комнатный номер
-                p 1 комнатный номер
+                .title {{ room.title }}
+                .title {{ room.subtitle }}
+                p(v-html="room.description")
                 div
                     button(@click="choose").choose {{ $t('choose') }}
 </template>
@@ -61,7 +56,7 @@
                 this.display = false
             },
             choose() {
-                this.$nuxt.$emit('ROOM_CHOSEN', this.room.id)
+                this.$nuxt.$emit('ROOM_CLICKED', this.room.id)
                 this.close()
             }
         }

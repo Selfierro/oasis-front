@@ -1,6 +1,6 @@
 <template lang="pug">
     .modalSlider(v-show="display")
-        .wrapper
+        .wrapper()
             div(@click="close").close
             .slider()
                 hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="true" :transition="1000" ref="slider")
@@ -9,7 +9,7 @@
                             img(:src="slide.image")
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')
-            .text
+            .text(v-if="initialized")
                 .title {{ room.title }}
                 .title {{ room.subtitle }}
                 p(v-html="room.description")
@@ -36,7 +36,8 @@
                     itemsToShow: 1
                 },
                 display: false,
-                slider: null
+                slider: null,
+                initialized: false
             }
         },
         mounted() {
@@ -50,6 +51,8 @@
                     that.slider.updateWidth()
                 })
             })
+
+            this.initialized = true
         },
         methods: {
             close() {

@@ -3,15 +3,23 @@
         .wrapper
             div(@click="close").close
             .slider()
-                hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="false" :transition="1000" ref="slider")
+                hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="true" :transition="1000" ref="slider")
                     slide(v-for="(slide, index) in room.gallery" :key="`slides-${index}`" :index="index")
                         div.item
                             img(:src="slide.image")
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')
-
-            div
-                button(@click="choose") {{ $t('choose') }}
+            .text
+                .title Стандарт
+                .title размещение макс 2 человек
+                p 1 комнатный номер
+                p 1 комнатный номер
+                p 1 комнатный номер
+                p 1 комнатный номер
+                p 1 комнатный номер
+                p 1 комнатный номер
+                div
+                    button(@click="choose").choose {{ $t('choose') }}
 </template>
 
 <script>

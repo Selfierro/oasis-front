@@ -39,8 +39,9 @@
                                     | {{ item.subtitle }}
             button(type="submit").send {{ $t('booking_form.book') }}
             br
-        p(v-if="show_book_success") {{ book_success_msg }}
-        p(v-for="msg in this.error_messages") {{ msg }}
+        div(style="max-width: 300px; margin: 0 auto")
+            p(v-if="show_book_success") {{ book_success_msg }}
+            p(v-for="msg in this.error_messages") {{ msg }}
 </template>
 
 <script>

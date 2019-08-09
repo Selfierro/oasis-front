@@ -1,6 +1,6 @@
 <template lang="pug">
     div
-        form(@submit.prevent="createBooking" v-show="!booking_success")
+        form(@submit.prevent="createBooking" v-if="!show_book_success")
             .flexGrid
                 .flexItem
                     div

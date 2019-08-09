@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    div(id="bookingForm")
         form(@submit.prevent="createBooking" v-if="!show_book_success")
             .flexGrid
                 .flexItem
@@ -42,6 +42,7 @@
         div(style="max-width: 300px; margin: 0 auto")
             p(v-if="show_book_success") {{ book_success_msg }}
             p(v-for="msg in this.error_messages") {{ msg }}
+        a(href="#bookingForm" v-smooth-scroll="{ duration: 1000, offset: -50 }" :ref="'booking-form-btn'" v-show="false")
 </template>
 
 <script>
@@ -122,6 +123,8 @@
                         //this.closeModal()
 
                         this.$nuxt.$emit('BOOKING_SUCCESS')
+
+                        this.$refs['booking-form-btn'].click()
                     } else {
                         this.$pushErrors(this, result['response'].data)
                     }

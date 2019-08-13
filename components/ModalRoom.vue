@@ -6,7 +6,7 @@
                 hooper(:settings="hooperSettings" :autoPlay="false" :infiniteScroll="true" :transition="1000" ref="slider")
                     slide(v-for="(slide, index) in room.gallery" :key="`slides-${index}`" :index="index")
                         div.item
-                            img(:src="slide.image")
+                            img(:src="slide.image" v-if="display")
                     hooper-navigation(slot='hooper-addons')
                     hooper-pagination(slot='hooper-addons')
             .text(v-if="initialized")

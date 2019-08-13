@@ -56,7 +56,7 @@
 
             hooper(group='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`" :index="index")
-                    img(:src="item.image_normal_thumbnail")
+                    img(:src="item.image")
                 hooper-navigation(slot='hooper-addons')
         .aboutOasis
             .container

@@ -22,7 +22,7 @@
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in conf_page.bottom_residence_slides" :key="`conference-bottom-${index}`", :index="index")
-                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`, index)")
+                    img(:src="slide.image_small_thumbnail" @click="openModalSlider(`modal-slider-bottom-slides`, index)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
 

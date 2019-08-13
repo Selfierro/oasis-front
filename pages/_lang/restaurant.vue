@@ -17,13 +17,13 @@
         .carousel.book
             hooper(:settings="hooperSettings5" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in restaurant_page.menu" :key="`menu-slides-${slideIndex}`" :index="slideIndex")
-                    img(:src="slide.image")
+                    img(:src="slide.image_thumbnail")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in restaurant_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
-                    img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`, slideIndex)")
+                    img(:src="slide.image_small_thumbnail" @click="openModalSlider(`modal-slider-bottom-slides`, slideIndex)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
 

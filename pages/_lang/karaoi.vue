@@ -33,7 +33,7 @@
                         .wrapperShadow
                             hooper(:group='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="800").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`, slideIndex)")
+                                    img(:src="slide.image_normal_thumbnail" @click="openModalSlider(`modal-slider-${item.id}`, slideIndex)")
                                 hooper-navigation(slot='hooper-addons')
                             .priceWrapper
                                 div.start
@@ -44,7 +44,7 @@
                                     //{{ $t('som') }}
                         hooper(:group="`slider-${index}`" :settings="hooperSettings3" :infiniteScroll="true" :transition="800").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
-                                img(:src="slide.image")
+                                img(:src="slide.image_normal_thumbnail")
                     .rightSide
                         //label(@click="bookRoom(item.id)") забронировать
                         p(v-html="item.description")
@@ -58,7 +58,7 @@
                         .wrapperShadow
                             hooper(:settings="hooperSettings2").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-as-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image" @click="openModalSlider(`modal-slider-add-service-${item.id}`, slideIndex)")
+                                    img(:src="slide.image_thumbnail" @click="openModalSlider(`modal-slider-add-service-${item.id}`, slideIndex)")
                                 hooper-navigation(slot='hooper-addons')
                     .rightSide
                         h4 {{ item.title }}

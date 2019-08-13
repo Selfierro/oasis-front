@@ -41,7 +41,7 @@
                                     label
                                         span {{ $t('choose') }}
                                         input(type="checkbox" v-model="chosen_rooms" :value="item.id").choiceRoom
-                            img(:src="item.gallery[0].image" @click="openModalRoom(`room-modal-${item.id}`)")
+                            img(:src="item.gallery[0].image_normal_thumbnail" @click="openModalRoom(`room-modal-${item.id}`)")
                             ModalRoom(:id="`room-modal-${item.id}`", :room="item")
                     .wrapper
                         BookingForm(:rooms_choices="index_page.residence_rooms")
@@ -56,7 +56,7 @@
 
             hooper(group='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`" :index="index")
-                    img(:src="item.image")
+                    img(:src="item.image_normal_thumbnail")
                 hooper-navigation(slot='hooper-addons')
         .aboutOasis
             .container

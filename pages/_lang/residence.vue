@@ -44,7 +44,7 @@
                                     // {{ $t('som') }}
                         hooper(:group="`slider-${index}`" :settings="hooperSettings3" :infiniteScroll="true" :transition="1000").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
-                                img(:src="slide.image")
+                                img(:src="slide.image_normal_thumbnail")
                     .rightSide
                         label(@click="bookRoom(item.id)") {{ $t('book') }}
                         p(v-html="item.description")

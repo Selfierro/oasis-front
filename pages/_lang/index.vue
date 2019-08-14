@@ -6,12 +6,18 @@
                 .item.leftImage
                     NLink(:to="this.$path('/residence')")
                         img(src="~/static/svg/oasisResidence.svg").logo
-                    img(src="~/static/jpg/home1.jpg").hotelLeft
+                    picture
+                        source(media="(max-width: 799px)" srcset="~/static/jpg/home1-350.jpg")
+                        source(media="(min-width: 800px)" srcset="~/static/jpg/home1.jpg")
+                        img(src="~/static/jpg/home1.jpg").hotelLeft
 
                 .item.rightImage
                     NLink(:to="this.$path('/karaoi')")
                         img(src="~/static/svg/oasisKaraOi.svg").logo
-                    img(src="~/static/jpg/home2.jpg").hotelRight
+                    picture
+                        source(media="(max-width: 799px)" srcset="~/static/jpg/home2-350.jpg")
+                        source(media="(min-width: 800px)" srcset="~/static/jpg/home2.jpg")
+                        img(src="~/static/jpg/home2.jpg").hotelRight
         //.reservation
           .container
                 h1 БРОНИРОВАНИЕ НА САЙТЕ
@@ -46,6 +52,7 @@
                     .wrapper
                         BookingForm(:rooms_choices="index_page.residence_rooms")
         .newsSlider
+
             hooper(group='slider' class="imageText" :wheelControl='false' :touchDrag='false' :mouseDrag='false' :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-${index}`" :index="index")
                     div
@@ -56,7 +63,11 @@
 
             hooper(group='slider', :itemsToShow='1', :centerMode='true' :wheelControl='false' :touchDrag='false' :mouseDrag='false' class="imageSlider" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(item, index) in index_page.news" :key="`news-image-${index}`" :index="index")
-                    img(:src="item.image")
+                    picture
+                        source(media="(max-width: 799px)" :srcset="item.image_mobile_thumbnail")
+                        source(media="(min-width: 800px)" :srcset="item.image")
+                        img(:src="item.image")
+
                 hooper-navigation(slot='hooper-addons')
         .aboutOasis
             .container

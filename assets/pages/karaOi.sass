@@ -2,12 +2,21 @@
 .slider
     .hooper
         height: 100vh
+        @media (max-width: 960px)
+            height: auto
         .item
             height: 100vh
+            @media (max-width: 960px)
+                height: auto
             img
                 height: 100%
                 width: 100%
                 object-fit: cover
+                @media (max-width: 960px)
+                    height: 300px
+        .hooper-pagination
+            @media (max-width: 960px)
+                display: none
 .slider
     position: relative
     &:before
@@ -22,6 +31,8 @@
         background-repeat: no-repeat
         width: 37px
         height: 25px
+        @media (max-width: 960px)
+            bottom: 20px
     .hooper-pagination
         bottom: 120px
     .hooper-indicator

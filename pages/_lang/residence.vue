@@ -5,7 +5,10 @@
             hooper(:settings="hooperSettings" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, index) in about_page.top_residence_slides" :key="`top-slides-${index}`" :index="index")
                     div.item
-                        img(:src="slide.image")
+                        picture
+                            source(media="(max-width: 799px)" :srcset="slide.image_small_thumbnail")
+                            source(media="(min-width: 800px)" :srcset="slide.image")
+                            img(:src="slide.image")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
         .aboutUs#about
@@ -33,7 +36,10 @@
                         .wrapperShadow
                             hooper(:group='`slider-${index}`' :settings="hooperSettings2" :infiniteScroll="true" :transition="1000").bigSlide
                                 slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-${index}-${slideIndex}`" :index="slideIndex")
-                                    img(:src="slide.image_normal_thumbnail" @click="openModalSlider(`modal-slider-${item.id}`, slideIndex)")
+                                    picture
+                                        source(media="(max-width: 799px)" :srcset="slide.image_normal_thumbnail")
+                                        source(media="(min-width: 800px)" :srcset="slide.image")
+                                        img(:src="slide.image" @click="openModalSlider(`modal-slider-${item.id}`, slideIndex)")
                                 hooper-navigation(slot='hooper-addons')
                             .priceWrapper
                                 div.start
@@ -44,7 +50,10 @@
                                     // {{ $t('som') }}
                         hooper(:group="`slider-${index}`" :settings="hooperSettings3" :infiniteScroll="true" :transition="1000").smallSlide
                             slide(v-for="(slide, slideIndex) in item.gallery" :key="`room-gallery-small-${index}-${slideIndex}`" :index="slideIndex")
-                                img(:src="slide.image_normal_thumbnail")
+                                picture
+                                    source(media="(max-width: 799px)" :srcset="slide.image_small_thumbnail")
+                                    source(media="(min-width: 800px)" :srcset="slide.image")
+                                    img(:src="slide.image")
                     .rightSide
                         label(@click="bookRoom(item.id)") {{ $t('book') }}
                         p(v-html="item.description")
@@ -68,7 +77,10 @@
         .carousel
             hooper(:settings="hooperSettings4" :infiniteScroll="true" :transition="1000")
                 slide(v-for="(slide, slideIndex) in about_page.bottom_residence_slides" :key="`bottom-slides-${slideIndex}`" :index="slideIndex")
-                    img(:src="slide.image_small_thumbnail" @click="openModalSlider(`modal-slider-bottom-slides`, slideIndex)")
+                    picture
+                        source(media="(max-width: 799px)" :srcset="slide.image_small_thumbnail")
+                        source(media="(min-width: 800px)" :srcset="slide.image")
+                        img(:src="slide.image" @click="openModalSlider(`modal-slider-bottom-slides`, slideIndex)")
                 hooper-navigation(slot='hooper-addons')
                 hooper-pagination(slot='hooper-addons')
 

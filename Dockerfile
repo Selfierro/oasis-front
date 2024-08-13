@@ -9,7 +9,7 @@ RUN apk add git
 RUN apk add curl
 
 COPY package.json .
-RUN npm i
+RUN npm install --legacy-peer-deps
 COPY . .
 
 RUN npm run build

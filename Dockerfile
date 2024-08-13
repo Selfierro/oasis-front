@@ -9,9 +9,7 @@ RUN apk add git
 RUN apk add curl
 
 COPY package.json .
-RUN npm uninstall node-sass && \
-    npm install sass && \
-    npm install --legacy-peer-deps
+RUN npm install --no-package-lock
 COPY . .
 
 RUN npm run build

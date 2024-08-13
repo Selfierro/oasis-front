@@ -9,6 +9,7 @@ RUN apk add git
 RUN apk add curl
 
 COPY package.json .
+ENV SASS_BINARY_SITE="https://github.com/sass/node-sass/releases/download/v6.0.1/"
 RUN npm install --legacy-peer-deps
 COPY . .
 

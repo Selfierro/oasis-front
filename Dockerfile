@@ -9,7 +9,8 @@ RUN apk add git
 RUN apk add curl
 
 COPY package.json .
-RUN npm install --no-package-lock
+COPY package-lock.json .
+RUN npm ci
 COPY . .
 
 RUN npm run build
